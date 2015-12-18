@@ -26,6 +26,8 @@ public:
   void setKDV(float value);
   int getSatisAdeti();
   void setSatisAdeti(int value);
+  float getSatisFiyati();
+  void setSatisFiyati(float value);
 };
 
 #endif // SATIS_H

@@ -8,7 +8,7 @@ using namespace std;
 class Urun
 {
 private:
-  int urunKodu;
+  int urunKodu; // barkod
   string urunAdi;
 public:
   Urun();

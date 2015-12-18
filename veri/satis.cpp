@@ -50,6 +50,16 @@ void Satis::setSatisAdeti(int value)
   satisAdeti = value;
 }
 
+
+float Satis::getSatisFiyati()
+{
+  return satisFiyati;
+}
+
+void Satis::setSatisFiyati(float value)
+{
+  satisFiyati = value;
+}
 Satis::Satis()
 {
 
