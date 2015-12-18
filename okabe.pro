@@ -8,12 +8,14 @@ SOURCES += main.cpp \
     veri/kategori.cpp \
     veri/alis.cpp \
     veri/satis.cpp \
-    veri/veritabani.cpp
+    veri/veritabani.cpp \
+    yazilim.cpp
 
 HEADERS += \
     veri/urun.h \
     veri/kategori.h \
     veri/alis.h \
     veri/satis.h \
-    veri/veritabani.h
+    veri/veritabani.h \
+    yazilim.h
 

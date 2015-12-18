@@ -1,10 +1,13 @@
 #include <iostream>
 
+#include "yazilim.h"
+
 using namespace std;
 
 int main()
 {
-  cout << "Hello World!" << endl;
+  Yazilim Okabe;
+  Okabe.baslat();
   return 0;
 }
 
