@@ -10,7 +10,6 @@ class Urun
 private:
   int urunKodu; // barkod
   string urunAdi;
-  Kategori kategori;
 public:
   Urun();
   int getUrunKodu();

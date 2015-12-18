@@ -61,6 +61,8 @@ private:
 
   adaGoreKategoriArama u_aramaKategoriAdi;
   kodaGoreKategoriArama u_aramaKategoriKodu;
+
+  int u_urunKodu;
 public:
   Veritabani();
   void urunEkle(Urun *urun);
