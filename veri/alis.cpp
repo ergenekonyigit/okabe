@@ -1,15 +1,5 @@
 #include "alis.h"
 
-int Alis::getAlisKodu()
-{
-  return alisKodu;
-}
-
-void Alis::setAlisKodu(int value)
-{
-  alisKodu = value;
-}
-
 int Alis::getUrunKodu()
 {
   return urunKodu;

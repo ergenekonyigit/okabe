@@ -1,15 +1,5 @@
 #include "satis.h"
 
-int Satis::getSatisKodu()
-{
-    return satisKodu;
-}
-
-void Satis::setSatisKodu(int value)
-{
-    satisKodu = value;
-}
-
 int Satis::getUrunKodu()
 {
     return urunKodu;

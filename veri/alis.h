@@ -8,15 +8,12 @@ using namespace std;
 class Alis
 {
 private:
-  int alisKodu;
   int urunKodu;
   string alisTarihi;
   float alisFiyati;
   int alisAdeti;
 public:
   Alis();
-  int getAlisKodu();
-  void setAlisKodu(int value);
   int getUrunKodu();
   void setUrunKodu(int value);
   string getAlisTarihi();

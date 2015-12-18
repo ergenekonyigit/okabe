@@ -8,7 +8,6 @@ using namespace std;
 class Satis
 {
 private:
-  int satisKodu;
   int urunKodu;
   string satisTarihi;
   float satisFiyati;
@@ -16,8 +15,6 @@ private:
   int satisAdeti;
 public:
   Satis();
-  int getSatisKodu();
-  void setSatisKodu(int value);
   int getUrunKodu();
   void setUrunKodu(int value);
   string getSatisTarihi();
