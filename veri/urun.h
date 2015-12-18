@@ -2,7 +2,7 @@
 #define URUN_H
 
 #include <string>
-
+#include "kategori.h"
 using namespace std;
 
 class Urun
@@ -10,9 +10,9 @@ class Urun
 private:
   int urunKodu; // barkod
   string urunAdi;
+  Kategori kategori;
 public:
   Urun();
-
   int getUrunKodu();
   void setUrunKodu(int value);
   string getUrunAdi();

@@ -7,9 +7,10 @@ using namespace std;
 
 class Kategori
 {
-public:
+private:
   int kategoriKodu;
   string kategoriAdi;
+public:
   Kategori();
   int getKategoriKodu();
   void setKategoriKodu(int value);
