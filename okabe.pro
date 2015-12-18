@@ -7,11 +7,13 @@ SOURCES += main.cpp \
     veri/urun.cpp \
     veri/kategori.cpp \
     veri/alis.cpp \
-    veri/satis.cpp
+    veri/satis.cpp \
+    veri/veritabani.cpp
 
 HEADERS += \
     veri/urun.h \
     veri/kategori.h \
     veri/alis.h \
-    veri/satis.h
+    veri/satis.h \
+    veri/veritabani.h
 
