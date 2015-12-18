@@ -12,7 +12,6 @@ private:
   string urunAdi;
 public:
   Urun();
-
   int getUrunKodu();
   void setUrunKodu(int value);
   string getUrunAdi();
