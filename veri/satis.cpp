@@ -20,16 +20,6 @@ void Satis::setSatisTarihi(string value)
   satisTarihi = value;
 }
 
-float Satis::getKDV()
-{
-  return KDV;
-}
-
-void Satis::setKDV(float value)
-{
-  KDV = value;
-}
-
 int Satis::getSatisAdeti()
 {
   return satisAdeti;

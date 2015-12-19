@@ -68,6 +68,36 @@ Urun *Veritabani::urunBul(int urunKodu)
   return u_aramaUrunKodu[urunKodu];
 }
 
+UrunVektoru Veritabani::adaGoreUrunAra(string urunAdi)
+{
+  UrunVektoru urunler;
+  if (u_aramaUrunAdi.count(urunAdi) == 0) {
+      throw "Ürün bulunamadı.";
+    }
+  for (adaGoreUrunGezgini i = u_aramaUrunAdi.begin();
+       i != u_aramaUrunAdi.end();
+       i++) {
+      if (i->first == urunAdi) {
+          urunler.push_back(i->second);
+        }
+    }
+  return urunler;
+}
+
+UrunVektoru Veritabani::kategoriUrunleri(Kategori *kategori)
+{
+  UrunVektoru urunler;
+  auto iliskiKategoriUrun = u_iliskiKategoriUrun.equal_range(kategori);
+  for (auto i = iliskiKategoriUrun.first;
+       i != iliskiKategoriUrun.second;
+       i++) {
+      if (i->first == kategori) {
+        urunler.push_back(i->second);
+        }
+  }
+  return urunler;
+}
+
 void Veritabani::kategoriEkle(Kategori *kategori)
 {
   u_vektorKategoriler.push_back(kategori);
@@ -200,7 +230,7 @@ void Veritabani::satisEkle(Satis *satis)
   u_vektorSatislar.push_back(satis);
 }
 
-void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, float KDV, int satisAdeti)
+void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, int satisAdeti)
 {
   if (u_aramaUrunKodu.count(urunKodu) == 0) {
       throw "Urun bulunamadi, once urunu eklemelisiniz.";
@@ -216,7 +246,7 @@ void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, 
   u_aramaSatisKodu[u_satisKodu] = satis;
   u_iliskiUrunSatis.insert(make_pair(u_aramaUrunKodu[urunKodu], satis));
 
-  u_satisKodu;
+  u_satisKodu++;
 }
 
 void Veritabani::satisSil(int satisKodu)
