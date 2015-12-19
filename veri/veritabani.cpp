@@ -213,7 +213,7 @@ void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, 
   satis->setUrunKodu(urunKodu);
 
   u_vektorSatislar.push_back(satis);
-  u_aramaAlisKodu[u_satisKodu] = satis;
+  u_aramaSatisKodu[u_satisKodu] = satis;
   u_iliskiUrunSatis.insert(make_pair(u_aramaUrunKodu[urunKodu], satis));
 
   u_satisKodu;
@@ -225,7 +225,7 @@ void Veritabani::satisSil(int satisKodu)
       throw "Silinecek satis islemi bulunamadı.";
     }
 
-  Satis *silinecekSatis = u_aramaSatisKodu[alisKodu];
+  Satis *silinecekSatis = u_aramaSatisKodu[satisKodu];
 
   for (auto i = u_vektorSatislar.begin(); i != u_vektorSatislar.end(); i++) {
       if (*i == silinecekSatis) {
@@ -233,7 +233,7 @@ void Veritabani::satisSil(int satisKodu)
           break;
         }
     }
-  u_aramaSatisKodu.erase(alisKodu);
+  u_aramaSatisKodu.erase(satisKodu);
 
   delete silinecekSatis;
 }
