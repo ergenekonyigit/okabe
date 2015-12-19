@@ -88,12 +88,12 @@ public:
   void alisEkle(Alis *alis);
   void alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti);
   void alisSil(int alisKodu);
-  // Alis *alisBul(int alisKodu);
+  Alis *alisBul(int alisKodu);
 
   void satisEkle(Satis *satis);
   void satisEkle(int urunKodu, string satisTarihi, float satisFiyati, float KDV, int satisAdeti);
-  // void satisSil(int satisKodu);
-  // Satis *satisBul(int satisKodu);
+  void satisSil(int satisKodu);
+  Satis *satisBul(int satisKodu);
 
 
 };

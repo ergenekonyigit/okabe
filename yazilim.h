@@ -21,7 +21,6 @@ private:
     SatisSilme,
     SatisListele,
     AlisSatisListele,
-
   };
 
   void islemListesi();

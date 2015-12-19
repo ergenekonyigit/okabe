@@ -11,10 +11,10 @@ void Veritabani::urunEkle(string urunAdi, int urunKodu, int kategoriKodu)
 {
   if (u_aramaUrunKodu.count(urunKodu) == 1) {
       throw "Aynı kodlu başka bir ürün var.";
-  }
+    }
   if (u_aramaKategoriKodu.count(kategoriKodu) == 0) {
-    throw "Kategori kodu bulunamadı.";
-  }
+      throw "Kategori kodu bulunamadı.";
+    }
 
   Urun *urun = new Urun;
   urun->setUrunAdi(urunAdi);
@@ -69,7 +69,7 @@ void Veritabani::kategoriEkle(string kategoriAdi, int kategoriKodu)
 {
   if (u_aramaKategoriKodu.count(kategoriKodu) == 1) {
       throw "Ayni kodlu baska bir kategori var.";
-  }
+    }
 
   Kategori* kategori = new Kategori;
   kategori->setKategoriAdi(kategoriAdi);
@@ -90,7 +90,7 @@ void Veritabani::kategoriSil(int kategoriKodu)
 {
   if (u_aramaKategoriKodu.count(kategoriKodu) == 0) {
       throw "Kategori kodu bulunamadi.";
-  }
+    }
 
   Kategori *silinecekKategori = u_aramaKategoriKodu[kategoriKodu];
 
@@ -99,7 +99,7 @@ void Veritabani::kategoriSil(int kategoriKodu)
           u_vektorKategoriler.erase(i);
           break;
         }
-  }
+    }
 
   u_aramaKategoriKodu.erase(kategoriKodu);
 
@@ -144,7 +144,7 @@ void Veritabani::alisEkle(Alis *alis)
 void Veritabani::alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti)
 {
   if (u_aramaUrunKodu.count(urunKodu) == 0) {
-      throw "Ürün bulunamadı, önce ürünü eklemelisiniz.";
+      throw "Urun bulunamadi, once urunu eklemelisiniz.";
     }
   Alis *alis = new Alis;
   alis->setAlisKodu(u_alisKodu);
@@ -168,9 +168,7 @@ void Veritabani::alisSil(int alisKodu)
 
   Alis *silinecekAlis = u_aramaAlisKodu[alisKodu];
 
-  for (auto i = u_vektorAlislar.begin();
-       i != u_vektorAlislar.end();
-       i++) {
+  for (auto i = u_vektorAlislar.begin(); i != u_vektorAlislar.end(); i++) {
       if (*i == silinecekAlis) {
           u_vektorAlislar.erase(i);
           break;
@@ -181,6 +179,14 @@ void Veritabani::alisSil(int alisKodu)
   delete silinecekAlis;
 }
 
+Alis *Veritabani::alisBul(int alisKodu)
+{
+  if (u_aramaUrunKodu.count(alisKodu) == 0) {
+      throw "Alis kodu bulunamadi.";
+    }
+  return u_aramaAlisKodu[alisKodu];
+}
+
 void Veritabani::satisEkle(Satis *satis)
 {
   u_vektorSatislar.push_back(satis);
@@ -188,6 +194,48 @@ void Veritabani::satisEkle(Satis *satis)
 
 void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, float KDV, int satisAdeti)
 {
+  if (u_aramaUrunKodu.count(urunKodu) == 0) {
+      throw "Urun bulunamadi, once urunu eklemelisiniz.";
+    }
+  Satis *satis = new Satis;
+  satis->setSatisKodu(u_satisKodu);
+  satis->setSatisAdeti(satisAdeti);
+  satis->setSatisFiyati(satisFiyati);
+  satis->setSatisTarihi(satisTarihi);
+  satis->setUrunKodu(urunKodu);
+
+  u_vektorSatislar.push_back(satis);
+  u_aramaAlisKodu[u_satisKodu] = satis;
+  u_iliskiUrunSatis.insert(make_pair(u_aramaUrunKodu[urunKodu], satis));
+
+  u_satisKodu;
+}
+
+void Veritabani::satisSil(int satisKodu)
+{
+  if (u_aramaSatisKodu.count(satisKodu) == 0) {
+      throw "Silinecek satis islemi bulunamadı.";
+    }
+
+  Satis *silinecekSatis = u_aramaSatisKodu[alisKodu];
+
+  for (auto i = u_vektorSatislar.begin(); i != u_vektorSatislar.end(); i++) {
+      if (*i == silinecekSatis) {
+          u_vektorSatislar.erase(i);
+          break;
+        }
+    }
+  u_aramaSatisKodu.erase(alisKodu);
+
+  delete silinecekSatis;
+}
+
+Satis *Veritabani::satisBul(int satisKodu)
+{
+  if (u_aramaUrunKodu.count(satisKodu) == 0) {
+      throw "Satis kodu bulunamadi.";
+    }
+  return u_aramaSatisKodu[satisKodu];
 }
 
 Veritabani::Veritabani()
