@@ -50,8 +50,19 @@ void Satis::setSatisFiyati(float value)
 {
   satisFiyati = value;
 }
+
+int Satis::getSatisKodu()
+{
+    return satisKodu;
+}
+
+void Satis::setSatisKodu(int value)
+{
+    satisKodu = value;
+}
+
 Satis::Satis()
 {
-
+    
 }
 

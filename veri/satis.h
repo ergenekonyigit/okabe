@@ -13,6 +13,7 @@ private:
   float satisFiyati;
   float KDV;
   int satisAdeti;
+  int satisKodu;
 public:
   Satis();
   int getUrunKodu();
@@ -25,6 +26,8 @@ public:
   void setSatisAdeti(int value);
   float getSatisFiyati();
   void setSatisFiyati(float value);
+  int getSatisKodu();
+  void setSatisKodu(int value);
 };
 
 #endif // SATIS_H

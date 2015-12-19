@@ -33,6 +33,8 @@ typedef adaGoreKategoriArama::iterator adaGoreKategoriGezgini;
 // Koda Göre Bulma
 typedef unordered_map<int, Urun*> kodaGoreUrunArama;
 typedef unordered_map<int, Kategori*> kodaGoreKategoriArama;
+typedef unordered_map<int, Alis*> kodaGoreAlisArama;
+typedef unordered_map<int, Satis*> kodaGoreSatisArama;
 
 // Sonsuz-sonsuz ilişkileri
 typedef unordered_multimap<Urun*, Kategori*> UrunKategoriIliski;
@@ -62,7 +64,12 @@ private:
   adaGoreKategoriArama u_aramaKategoriAdi;
   kodaGoreKategoriArama u_aramaKategoriKodu;
 
+  kodaGoreAlisArama u_aramaAlisKodu;
+  kodaGoreSatisArama u_aramaSatisKodu;
+
   int u_urunKodu;
+  int u_alisKodu;
+  int u_satisKodu;
 public:
   Veritabani();
   void urunEkle(Urun *urun);
@@ -79,8 +86,8 @@ public:
   KategoriVektoru adaGoreKategoriAra(string kategoriAdi);
 
   void alisEkle(Alis *alis);
-  void alisEkle(string alisTarihi, float alisFiyati, int alisAdeti);
-  // void alisSil(int alisKodu);
+  void alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti);
+  void alisSil(int alisKodu);
   // Alis *alisBul(int alisKodu);
 
   void satisEkle(Satis *satis);

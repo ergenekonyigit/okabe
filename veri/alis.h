@@ -12,6 +12,7 @@ private:
   string alisTarihi;
   float alisFiyati;
   int alisAdeti;
+  int alisKodu;
 public:
   Alis();
   int getUrunKodu();
@@ -22,6 +23,8 @@ public:
   void setAlisFiyati(float value);
   int getAlisAdeti();
   void setAlisAdeti(int value);
+  int getAlisKodu();
+  void setAlisKodu(int value);
 };
 
 #endif // ALIS_H

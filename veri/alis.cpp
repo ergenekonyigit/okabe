@@ -40,7 +40,17 @@ void Alis::setAlisAdeti(int value)
   alisAdeti = value;
 }
 
+int Alis::getAlisKodu()
+{
+    return alisKodu;
+}
+
+void Alis::setAlisKodu(int value)
+{
+    alisKodu = value;
+}
+
 Alis::Alis()
 {
-
+    
 }

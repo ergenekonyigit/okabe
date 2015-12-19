@@ -18,17 +18,15 @@ void Veritabani::urunEkle(string urunAdi, int urunKodu, int kategoriKodu)
 
   Urun *urun = new Urun;
   urun->setUrunAdi(urunAdi);
-  urun->setUrunKodu(u_urunKodu); u_urunKodu++;
+  urun->setUrunKodu(u_urunKodu);
 
   u_aramaUrunKodu[urunKodu] = urun;
   u_aramaUrunAdi.insert(make_pair(urunAdi, urun));
-
-  u_iliskiKategoriUrun.insert(
-        make_pair(u_aramaKategoriKodu[kategoriKodu], urun));
-  u_iliskiUrunKategori.insert(
-        make_pair(urun, u_aramaKategoriKodu[kategoriKodu]));
+  u_iliskiKategoriUrun.insert(make_pair(u_aramaKategoriKodu[kategoriKodu], urun));
+  u_iliskiUrunKategori.insert(make_pair(urun, u_aramaKategoriKodu[kategoriKodu]));
   u_vektorUrunler.push_back(urun);
 
+  u_urunKodu++;
 }
 
 void Veritabani::urunSil(int urunKodu)
@@ -143,9 +141,44 @@ void Veritabani::alisEkle(Alis *alis)
   u_vektorAlislar.push_back(alis);
 }
 
-void Veritabani::alisEkle(string alisTarihi, float alisFiyati, int alisAdeti)
+void Veritabani::alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti)
 {
+  if (u_aramaUrunKodu.count(urunKodu) == 0) {
+      throw "Ürün bulunamadı, önce ürünü eklemelisiniz.";
+    }
+  Alis *alis = new Alis;
+  alis->setAlisKodu(u_alisKodu);
+  alis->setAlisAdeti(alisAdeti);
+  alis->setAlisFiyati(alisFiyati);
+  alis->setAlisTarihi(alisTarihi);
+  alis->setUrunKodu(urunKodu);
 
+  u_vektorAlislar.push_back(alis);
+  u_aramaAlisKodu[u_alisKodu] = alis;
+  u_iliskiUrunAlis.insert(make_pair(u_aramaUrunKodu[urunKodu], alis));
+
+  u_alisKodu++;
+}
+
+void Veritabani::alisSil(int alisKodu)
+{
+  if (u_aramaAlisKodu.count(alisKodu) == 0) {
+      throw "Silinecek alis islemi bulunamadı.";
+    }
+
+  Alis *silinecekAlis = u_aramaAlisKodu[alisKodu];
+
+  for (auto i = u_vektorAlislar.begin();
+       i != u_vektorAlislar.end();
+       i++) {
+      if (*i == silinecekAlis) {
+          u_vektorAlislar.erase(i);
+          break;
+        }
+    }
+  u_aramaAlisKodu.erase(alisKodu);
+
+  delete silinecekAlis;
 }
 
 void Veritabani::satisEkle(Satis *satis)
@@ -155,11 +188,12 @@ void Veritabani::satisEkle(Satis *satis)
 
 void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, float KDV, int satisAdeti)
 {
-
 }
 
 Veritabani::Veritabani()
 {
   this->u_urunKodu = 0;
+  this->u_alisKodu = 0;
+  this->u_satisKodu = 0;
 }
 
