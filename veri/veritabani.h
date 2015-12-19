@@ -91,7 +91,7 @@ public:
   Alis *alisBul(int alisKodu);
 
   void satisEkle(Satis *satis);
-  void satisEkle(int urunKodu, string satisTarihi, float satisFiyati, float KDV, int satisAdeti);
+  void satisEkle(int urunKodu, string satisTarihi, float satisFiyati, int satisAdeti);
   void satisSil(int satisKodu);
   Satis *satisBul(int satisKodu);
 

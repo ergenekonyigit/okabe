@@ -11,7 +11,6 @@ private:
   int urunKodu;
   string satisTarihi;
   float satisFiyati;
-  float KDV;
   int satisAdeti;
   int satisKodu;
 public:
@@ -20,8 +19,6 @@ public:
   void setUrunKodu(int value);
   string getSatisTarihi();
   void setSatisTarihi(string value);
-  float getKDV();
-  void setKDV(float value);
   int getSatisAdeti();
   void setSatisAdeti(int value);
   float getSatisFiyati();
