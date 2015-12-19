@@ -60,6 +60,14 @@ void Veritabani::urunSil(int urunKodu)
   delete silinecekUrun;
 }
 
+Urun *Veritabani::urunBul(int urunKodu)
+{
+  if (u_aramaUrunKodu.count(urunKodu) == 0) {
+      throw "Ürün bulunamadı.";
+    }
+  return u_aramaUrunKodu[urunKodu];
+}
+
 void Veritabani::kategoriEkle(Kategori *kategori)
 {
   u_vektorKategoriler.push_back(kategori);
