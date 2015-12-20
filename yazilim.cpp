@@ -8,7 +8,6 @@ using namespace std;
 Yazilim::Yazilim()
 {
   this->vt = new Veritabani;
-  this->arayuz = new Arayuz;
 }
 
 void Yazilim::baslat()

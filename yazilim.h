@@ -2,13 +2,11 @@
 #define YAZILIM_H
 
 #include "veri/veritabani.h"
-#include "arayuz.h"
 
 class Yazilim
 {
-private:
+protected:
   Veritabani *vt;
-  Arayuz *arayuz;
 public:
   Yazilim();
   void baslat();
