@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     veri/alis.cpp \
     veri/satis.cpp \
     veri/veritabani.cpp \
-    yazilim.cpp
+    yazilim.cpp \
+    arayuz.cpp
 
 HEADERS += \
     veri/urun.h \
@@ -17,5 +18,6 @@ HEADERS += \
     veri/alis.h \
     veri/satis.h \
     veri/veritabani.h \
-    yazilim.h
+    yazilim.h \
+    arayuz.h
 

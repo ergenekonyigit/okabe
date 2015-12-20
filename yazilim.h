@@ -2,33 +2,13 @@
 #define YAZILIM_H
 
 #include "veri/veritabani.h"
+#include "arayuz.h"
 
 class Yazilim
 {
 private:
   Veritabani *vt;
-
-  enum islemTipi {
-    Exit,
-    UrunEkle,
-    UrunAramaAd,
-    UrunAramaKod,
-    UrunSilme,
-    UrunListele,
-    AlisEkle,
-    AlisArama,
-    AlisSilme,
-    AlisListele,
-    SatisEkle,
-    SatisArama,
-    SatisSilme,
-    SatisListele,
-    AlisSatisListele,
-  };
-
-  void islemListesi();
-  islemTipi islemSec();
-
+  Arayuz *arayuz;
 public:
   Yazilim();
   void baslat();
