@@ -9,14 +9,15 @@ private:
     Cikis,
     Urunler,
     Kategoriler,
-    Satislar,
-    Alislar
+    Alislar,
+    Satislar
   };
 
   enum urunMenu {
     UrunAnaMenu,
     YeniUrun,
-    UrunAra,
+    AdaGoreUrunAra,
+    KodaGoreUrunAra,
     UrunleriListele,
     UrunSil,
     UrunDuzenle
@@ -47,7 +48,19 @@ private:
   };
 
   void anaMenuListe();
-  anaMenu anaMenuSecim();
+  void anaMenuSecim();
+
+  void urunMenuListe();
+  void urunMenuSecim();
+
+  void kategoriMenuListe();
+  void kategoriMenuSecim();
+
+  void alisMenuListe();
+  void alisMenuSecim();
+
+  void satisMenuListe();
+  void satisMenuSecim();
 public:
   Arayuz();
 };
