@@ -8,8 +8,8 @@ using namespace std;
 
 int main()
 {
-  Yazilim Okabe;
-  Okabe.baslat();
+  Arayuz arayuz;
+
   return 0;
 }
 

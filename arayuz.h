@@ -12,7 +12,8 @@ protected:
     Urunler,
     Kategoriler,
     Alislar,
-    Satislar
+    Satislar,
+    Hakkinda
   };
 
   enum urunMenu {
@@ -67,6 +68,8 @@ protected:
 
   void satisMenuListe();
   void satisMenuSecim();
+
+  void hakkinda();
 public:
   Arayuz();
 };
