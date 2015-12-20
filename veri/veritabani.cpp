@@ -293,6 +293,26 @@ void Veritabani::setU_kategoriKodu(int value)
   u_kategoriKodu = value;
 }
 
+int Veritabani::getU_alisKodu()
+{
+  return u_alisKodu;
+}
+
+void Veritabani::setU_alisKodu(int value)
+{
+  u_alisKodu = value;
+}
+
+int Veritabani::getU_satisKodu()
+{
+  return u_satisKodu;
+}
+
+void Veritabani::setU_satisKodu(int value)
+{
+  u_satisKodu = value;
+}
+
 Veritabani::Veritabani()
 {
   this->u_urunKodu = 1;

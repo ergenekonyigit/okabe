@@ -100,6 +100,10 @@ public:
   void setU_urunKodu(int value);
   int getU_kategoriKodu();
   void setU_kategoriKodu(int value);
+  int getU_alisKodu();
+  void setU_alisKodu(int value);
+  int getU_satisKodu();
+  void setU_satisKodu(int value);
 };
 
 #endif // VERITABANI_H

@@ -199,6 +199,8 @@ void Yazilim::alisEklemeIslemi()
 
   try {
     this->vt->alisEkle(urunKodu, alisTarihi, alisFiyati, alisAdeti);
+    cout << "Başarılı!" << endl;
+    cout << "Alış kodu : " << vt->getU_alisKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -264,6 +266,8 @@ void Yazilim::satisEklemeIslemi()
 
   try {
     this->vt->satisEkle(urunKodu, satisTarihi, satisFiyati, satisAdeti);
+    cout << "Başarılı!" << endl;
+    cout << "Satış kodu : " << vt->getU_satisKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
