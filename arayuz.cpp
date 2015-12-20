@@ -57,11 +57,11 @@ void Arayuz::urunMenuListe()
   cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << endl;
   cout << " ( 1 )  Yeni Urun                           " << endl;
   cout << " ( 2 )  Ada Gore Urun Ara                   " << endl;
-  cout << " ( 3 )  Koda Gore Urun Ar                   " << endl;
+  cout << " ( 3 )  Koda Gore Urun Ara                  " << endl;
   cout << " ( 4 )  Urunleri Listele                    " << endl;
   cout << " ( 5 )  Urun Sil                            " << endl;
   cout << " ( 6 )  Urun Duzenle                        " << endl;
-  cout << " ( 1 )  Ana Menu                            " << endl;
+  cout << " ( 0 )  Ana Menu                            " << endl;
 }
 
 void Arayuz::urunMenuSecim()
@@ -97,7 +97,16 @@ void Arayuz::urunMenuSecim()
 
 void Arayuz::kategoriMenuListe()
 {
-
+  system("clear");
+  cout << "         Okabe Stok Kontrol Yazılımı        " << endl;
+  cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << endl;
+  cout << " ( 1 )  Yeni Kategori                       " << endl;
+  cout << " ( 2 )  Ada Gore Kategori Ara               " << endl;
+  cout << " ( 3 )  Koda Gore Urun Ara                  " << endl;
+  cout << " ( 4 )  Kategorileri Listele                " << endl;
+  cout << " ( 5 )  Kategori Sil                        " << endl;
+  cout << " ( 6 )  Kategori Duzenle                    " << endl;
+  cout << " ( 0 )  Ana Menu                            " << endl;
 }
 
 void Arayuz::kategoriMenuSecim()
@@ -107,7 +116,15 @@ void Arayuz::kategoriMenuSecim()
 
 void Arayuz::alisMenuListe()
 {
-
+  system("clear");
+  cout << "         Okabe Stok Kontrol Yazılımı        " << endl;
+  cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << endl;
+  cout << " ( 1 )  Alis ekle                           " << endl;
+  cout << " ( 2 )  Alislari listele                    " << endl;
+  cout << " ( 3 )  Alis sil                            " << endl;
+  cout << " ( 4 )  Alis duzenle                        " << endl;
+  cout << " ( 5 )  Alis bul (koda gore)                " << endl;
+  cout << " ( 0 )  Ana Menu                            " << endl;
 }
 
 void Arayuz::alisMenuSecim()
@@ -117,7 +134,15 @@ void Arayuz::alisMenuSecim()
 
 void Arayuz::satisMenuListe()
 {
-
+  system("clear");
+  cout << "         Okabe Stok Kontrol Yazılımı        " << endl;
+  cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << endl;
+  cout << " ( 1 )  Satis ekle                          " << endl;
+  cout << " ( 2 )  Satislari listele                   " << endl;
+  cout << " ( 3 )  Satis sil                           " << endl;
+  cout << " ( 4 )  Satis duzenle                       " << endl;
+  cout << " ( 5 )  Alis bul (koda göre)                " << endl;
+  cout << " ( 0 )  Ana Menu                            " << endl;
 }
 
 void Arayuz::satisMenuSecim()

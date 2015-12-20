@@ -26,6 +26,8 @@ private:
   enum kategoriMenu {
     KategoriAnaMenu,
     YeniKategori,
+    AdaGoreKategoriAra,
+    KodaGoreKategoriAra,
     KategoriListele,
     KategoriSil,
     KategoriDuzenle
@@ -36,7 +38,8 @@ private:
     YeniAlis,
     AlisListele,
     AlisSil,
-    AlisDuzenle
+    AlisDuzenle,
+    KodaGoreAlisBul
   };
 
   enum satisMenu {
@@ -44,7 +47,8 @@ private:
     YeniSatis,
     SatisListele,
     SatisSil,
-    SatisDuzenle
+    SatisDuzenle,
+    KodaGoreSatisBul
   };
 
   void anaMenuListe();
