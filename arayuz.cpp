@@ -22,7 +22,8 @@ void Arayuz::anaMenuListe()
   cout << "│  2  ▸  Kategoriler                        │" << endl;
   cout << "│  3  ▸  Alışlar                            │" << endl;
   cout << "│  4  ▸  Satışlar                           │" << endl;
-  cout << "│  5  ▸  Hakkında                           │" << endl;
+  cout << "│  5  ▸  Kullanim                           │" << endl;
+  cout << "│  6  ▸  Hakkında                           │" << endl;
   cout << "│  0  ▸  Çıkış                              │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -33,7 +34,7 @@ void Arayuz::anaMenuSecim()
   do {
       cout << "Seçiminiz:";
       cin >> secim;
-    } while (secim < 0 || secim > 5);
+    } while (secim < 0 || secim > 7);
 
   switch (secim) {
     case Cikis:
@@ -56,9 +57,16 @@ void Arayuz::anaMenuSecim()
       satisMenuListe();
       satisMenuSecim();
       break;
+    case Kullanim:
+      kullanim();
+      break;
     case Hakkinda:
       hakkinda();
       return;
+      break;
+    case Tazele:
+      anaMenuListe();
+      anaMenuSecim();
       break;
     default:
       break;
@@ -129,8 +137,9 @@ void Arayuz::kategoriMenuListe()
   cout << "│  2  ▸  Ada Gore Kategori Ara              │" << endl;
   cout << "│  3  ▸  Koda Gore Urun Ara                 │" << endl;
   cout << "│  4  ▸  Kategorileri Listele               │" << endl;
-  cout << "│  5  ▸  Kategori Sil                       │" << endl;
-  cout << "│  6  ▸  Kategori Duzenle                   │" << endl;
+  cout << "│  5  ▸  Kategori Urunleri Listele          │" << endl;
+  cout << "│  6  ▸  Kategori Sil                       │" << endl;
+  cout << "│  7  ▸  Kategori Duzenle                   │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -159,6 +168,9 @@ void Arayuz::kategoriMenuSecim()
       break;
     case KategoriListele:
       yz->kategoriListelemeIslemi();
+      break;
+    case KategoriUrunleriListele:
+      yz->kategoriUrunleriListelemeIslemi();
       break;
     case KategoriSil:
       yz->kategoriSilmeIslemi();
@@ -270,17 +282,45 @@ void Arayuz::satisMenuSecim()
   satisMenuSecim();
 }
 
-void Arayuz::hakkinda()
+void Arayuz::kullanim()
 {
   system("clear");
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Okabe Stok Kontrol Yazılımı        │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
   cout << "│                                           │" << endl;
+  cout << "│  •  Sorunsuz kullanim icin talimatlari    │" << endl;
+  cout << "│           sirasiyla uygulayiniz           │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│  1-)  Kategorileri Ekleyiniz.             │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│  2-)  Urunleri Ekleyiniz.                 │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│  3-)  Alislari Ekleyiniz.                 │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│  4-)  Satislari Ekleyiniz.                │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│  Geribildirim : yigitergenekon@gmail.com  │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│  • Ana Menuye Donmek Icin 7'ye basiniz •  │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "└───────────────────────────────────────────┘" << endl;
+}
+
+void Arayuz::hakkinda()
+{
+  system("clear");
+  cout << "┌───────────────────────────────────────────┐" << endl;
+  cout << "│        Okabe Stok Kontrol Yazilimi        │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│                                           │" << endl;
   cout << "│  https://github.com/ergenekonyigit/okabe  │" << endl;
   cout << "│                                           │" << endl;
-  cout << "│         Regaip Ergenekon Yiğit            │" << endl;
-  cout << "│           Taha İbrahim Bayram             │" << endl;
+  cout << "│         Regaip Ergenekon Yigit            │" << endl;
+  cout << "│           Taha Ibrahim Bayram             │" << endl;
   cout << "│                                           │" << endl;
   cout << "│                                           │" << endl;
   cout << "│                Okabe Inc.                 │" << endl;

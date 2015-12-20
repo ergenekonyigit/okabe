@@ -13,7 +13,9 @@ protected:
     Kategoriler,
     Alislar,
     Satislar,
-    Hakkinda
+    Kullanim,
+    Hakkinda,
+    Tazele
   };
 
   enum urunMenu {
@@ -32,6 +34,7 @@ protected:
     AdaGoreKategoriAra,
     KodaGoreKategoriAra,
     KategoriListele,
+    KategoriUrunleriListele,
     KategoriSil,
     KategoriDuzenle
   };
@@ -68,6 +71,8 @@ protected:
 
   void satisMenuListe();
   void satisMenuSecim();
+
+  void kullanim();
 
   void hakkinda();
 public:

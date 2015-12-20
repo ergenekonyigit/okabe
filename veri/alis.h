@@ -7,7 +7,7 @@ using namespace std;
 
 class Alis
 {
-private:
+protected:
   int urunKodu;
   string alisTarihi;
   float alisFiyati;
