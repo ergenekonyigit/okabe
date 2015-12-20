@@ -18,18 +18,18 @@ void Yazilim::baslat()
 void Yazilim::urunEklemeIslemi()
 {
   string urunAdi;
-  int urunKodu, kategoriKodu;
+  int kategoriKodu;
   cout << "Urun Adini Giriniz : ";
   cin.clear();
   cin.ignore(1, '\n');
   getline(cin, urunAdi);
-  cout << "Urun Kodunu Giriniz : ";
-  cin >> urunKodu;
   cout << "Kategori Kodunu Giriniz : ";
   cin >> kategoriKodu;
 
   try {
-    this->vt->urunEkle(urunAdi, urunKodu, kategoriKodu);
+    this->vt->urunEkle(urunAdi, kategoriKodu);
+    cout << "Urun Eklendi!" << endl;
+    cout << urunAdi << " için urun kodu : " << vt->getU_urunKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -100,16 +100,15 @@ void Yazilim::kodaGoreUrunBulmaIslemi()
 void Yazilim::kategoriEklemeIslemi()
 {
   string kategoriAdi;
-  int kategoriKodu;
   cout << "Kategori Adini Giriniz : ";
   cin.clear();
   cin.ignore(1, '\n');
   getline(cin, kategoriAdi);
-  cout << "Kategori Kodunu Giriniz : ";
-  cin >> kategoriKodu;
 
   try {
-    this->vt->kategoriEkle(kategoriAdi, kategoriKodu);
+    this->vt->kategoriEkle(kategoriAdi);
+    cout << "Kategori Eklendi!" << endl;
+    cout << kategoriAdi << " için kategori kodu : " << vt->getU_kategoriKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }

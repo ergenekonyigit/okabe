@@ -68,19 +68,20 @@ private:
   kodaGoreSatisArama u_aramaSatisKodu;
 
   int u_urunKodu;
+  int u_kategoriKodu;
   int u_alisKodu;
   int u_satisKodu;
 public:
   Veritabani();
   void urunEkle(Urun *urun);
-  void urunEkle(string urunAdi, int urunKodu, int kategoriKodu);
+  void urunEkle(string urunAdi, int kategoriKodu);
   void urunSil(int urunKodu);
   Urun *urunBul(int urunKodu);
   UrunVektoru adaGoreUrunAra(string urunAdi);
   UrunVektoru kategoriUrunleri(Kategori *kategori);
 
   void kategoriEkle(Kategori *kategori);
-  void kategoriEkle(string kategoriAdi, int kategoriKodu);
+  void kategoriEkle(string kategoriAdi);
   void kategoriSil(int kategoriKodu);
   Kategori *kategoriBul(int kategoriKodu);
   KategoriVektoru adaGoreKategoriAra(string kategoriAdi);
@@ -95,6 +96,10 @@ public:
   void satisSil(int satisKodu);
   Satis *satisBul(int satisKodu);
 
+  int getU_urunKodu();
+  void setU_urunKodu(int value);
+  int getU_kategoriKodu();
+  void setU_kategoriKodu(int value);
 };
 
 #endif // VERITABANI_H

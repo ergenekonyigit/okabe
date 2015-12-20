@@ -7,11 +7,11 @@ void Veritabani::urunEkle(Urun *urun)
   u_vektorUrunler.push_back(urun);
 }
 
-void Veritabani::urunEkle(string urunAdi, int urunKodu, int kategoriKodu)
+void Veritabani::urunEkle(string urunAdi, int kategoriKodu)
 {
-  if (u_aramaUrunKodu.count(urunKodu) == 1) {
+  /*if (u_aramaUrunKodu.count(urunKodu) == 1) {
       throw "Aynı kodlu başka bir ürün var.";
-    }
+    }*/
   if (u_aramaKategoriKodu.count(kategoriKodu) == 0) {
       throw "Kategori kodu bulunamadı.";
     }
@@ -20,7 +20,7 @@ void Veritabani::urunEkle(string urunAdi, int urunKodu, int kategoriKodu)
   urun->setUrunAdi(urunAdi);
   urun->setUrunKodu(u_urunKodu);
 
-  u_aramaUrunKodu[urunKodu] = urun;
+  u_aramaUrunKodu[u_urunKodu] = urun;
   u_aramaUrunAdi.insert(make_pair(urunAdi, urun));
   u_iliskiKategoriUrun.insert(make_pair(u_aramaKategoriKodu[kategoriKodu], urun));
   u_iliskiUrunKategori.insert(make_pair(urun, u_aramaKategoriKodu[kategoriKodu]));
@@ -103,25 +103,22 @@ void Veritabani::kategoriEkle(Kategori *kategori)
   u_vektorKategoriler.push_back(kategori);
 }
 
-void Veritabani::kategoriEkle(string kategoriAdi, int kategoriKodu)
+void Veritabani::kategoriEkle(string kategoriAdi)
 {
-  if (u_aramaKategoriKodu.count(kategoriKodu) == 1) {
+  /*if (u_aramaKategoriKodu.count(kategoriKodu) == 1) {
       throw "Ayni kodlu baska bir kategori var.";
     }
-
+  */
   Kategori* kategori = new Kategori;
   kategori->setKategoriAdi(kategoriAdi);
-  kategori->setKategoriKodu(kategoriKodu);
+  kategori->setKategoriKodu(u_kategoriKodu);
 
   u_aramaKategoriAdi.insert(make_pair(kategoriAdi, kategori));
-  u_aramaKategoriKodu[kategoriKodu] = kategori;
+  u_aramaKategoriKodu[u_kategoriKodu] = kategori;
 
   u_vektorKategoriler.push_back(kategori);
 
-  /*
-  u_vektorKategoriler[0] = kategori;
-  kategori = u_vektorKategoriler[0];
-  */
+  u_kategoriKodu++;
 }
 
 void Veritabani::kategoriSil(int kategoriKodu)
@@ -276,10 +273,31 @@ Satis *Veritabani::satisBul(int satisKodu)
   return u_aramaSatisKodu[satisKodu];
 }
 
+int Veritabani::getU_urunKodu()
+{
+  return u_urunKodu;
+}
+
+void Veritabani::setU_urunKodu(int value)
+{
+  u_urunKodu = value;
+}
+
+int Veritabani::getU_kategoriKodu()
+{
+  return u_kategoriKodu;
+}
+
+void Veritabani::setU_kategoriKodu(int value)
+{
+  u_kategoriKodu = value;
+}
+
 Veritabani::Veritabani()
 {
-  this->u_urunKodu = 0;
-  this->u_alisKodu = 0;
-  this->u_satisKodu = 0;
+  this->u_urunKodu = 1;
+  this->u_kategoriKodu = 1;
+  this->u_alisKodu = 1;
+  this->u_satisKodu = 1;
 }
 
