@@ -16,15 +16,15 @@ void Arayuz::anaMenuListe()
 {
   system("clear");
   cout << "┌───────────────────────────────────────────┐" << endl;
-  cout << "│        Okabe Stok Kontrol Yazılımı        │" << endl;
+  cout << "│        Okabe Stok Kontrol Yazilimi        │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
-  cout << "│  1  ▸  Ürünler                            │" << endl;
+  cout << "│  1  ▸  Urunler                            │" << endl;
   cout << "│  2  ▸  Kategoriler                        │" << endl;
-  cout << "│  3  ▸  Alışlar                            │" << endl;
-  cout << "│  4  ▸  Satışlar                           │" << endl;
+  cout << "│  3  ▸  Alislar                            │" << endl;
+  cout << "│  4  ▸  Satislar                           │" << endl;
   cout << "│  5  ▸  Kullanim                           │" << endl;
-  cout << "│  6  ▸  Hakkında                           │" << endl;
-  cout << "│  0  ▸  Çıkış                              │" << endl;
+  cout << "│  6  ▸  Hakkinda                           │" << endl;
+  cout << "│  0  ▸  Cikis                              │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
 
@@ -32,13 +32,13 @@ void Arayuz::anaMenuSecim()
 {
   int secim;
   do {
-      cout << "Seçiminiz:";
+      cout << "Seciminiz:";
       cin >> secim;
     } while (secim < 0 || secim > 7);
 
   switch (secim) {
     case Cikis:
-      cout << "Çıkılıyor..." << endl;
+      cout << "Cikiliyor..." << endl;
       exit(0);
       break;
     case Urunler:
@@ -94,7 +94,7 @@ void Arayuz::urunMenuSecim()
 {
   int secim;
   do {
-      cout << "Seçiminiz:";
+      cout << "Seciminiz:";
       cin >> secim;
     } while (secim < 0 || secim > 6);
 
@@ -148,7 +148,7 @@ void Arayuz::kategoriMenuSecim()
 {
   int secim;
   do {
-      cout << "Seçiminiz:";
+      cout << "Seciminiz:";
       cin >> secim;
     } while (secim < 0 || secim > 6);
 
@@ -203,7 +203,7 @@ void Arayuz::alisMenuSecim()
 {
   int secim;
   do {
-      cout << "Seçiminiz:";
+      cout << "Seciminiz:";
       cin >> secim;
     } while (secim < 0 || secim > 5);
 
@@ -252,7 +252,7 @@ void Arayuz::satisMenuSecim()
 {
   int secim;
   do {
-      cout << "Seçiminiz:";
+      cout << "Seciminiz:";
       cin >> secim;
     } while (secim < 0 || secim > 5);
 
@@ -286,7 +286,7 @@ void Arayuz::kullanim()
 {
   system("clear");
   cout << "┌───────────────────────────────────────────┐" << endl;
-  cout << "│        Okabe Stok Kontrol Yazılımı        │" << endl;
+  cout << "│        Okabe Stok Kontrol Yazilimi        │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
   cout << "│                                           │" << endl;
   cout << "│  •  Sorunsuz kullanim icin talimatlari    │" << endl;

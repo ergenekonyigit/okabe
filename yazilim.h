@@ -9,7 +9,6 @@ protected:
   Veritabani *vt;
 public:
   Yazilim();
-  void baslat();
 
   void urunEklemeIslemi();
   void urunSilmeIslemi();

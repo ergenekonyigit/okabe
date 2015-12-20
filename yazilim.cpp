@@ -2,17 +2,13 @@
 #include <string>
 
 #include "yazilim.h"
+#include "veri/veritabani.h"
 
 using namespace std;
 
 Yazilim::Yazilim()
 {
   this->vt = new Veritabani;
-}
-
-void Yazilim::baslat()
-{
-
 }
 
 void Yazilim::urunEklemeIslemi()
@@ -135,7 +131,17 @@ void Yazilim::kategoriDuzenlemeIslemi()
 
 void Yazilim::kategoriListelemeIslemi()
 {
-
+  /*
+  KategoriVektoru sonuc;
+  cout << "Kategori Kodu" << '\t' << "      Kategori Adi    " << endl;
+  cout << "============="  << '\t' << "======================" << endl;
+  for (KategoriGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
+      Kategori *kategori_i = *i;
+      cout << kategori_i->getKategoriKodu() << '\t' << '\t' << kategori_i->getKategoriAdi() << endl;
+    }
+  cout << "======================================" << endl;
+  cout << "Toplam Kategori Sayisi : " << sonuc.size() << endl;
+  */
 }
 
 void Yazilim::kategoriUrunleriListelemeIslemi()
