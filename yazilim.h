@@ -26,6 +26,8 @@ private:
     AlisSatisListele,
   };
 
+  Veritabani *vt;
+
   void islemListesi();
   islemTipi islemSec();
 
