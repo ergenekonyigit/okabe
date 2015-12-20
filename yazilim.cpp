@@ -15,6 +15,11 @@ void Yazilim::baslat()
       islemListesi();
       switch (islemSec()) {
         case UrunEkle:
+          //input almalar falan
+          Urun *yeniUrun;
+          //atamalar falan
+          //ikinci yol olaraktan: urun nesnesi yerine alanları vereceğiz parametre olarak
+          vt->urunEkle(yeniUrun);
           break;
         case UrunAramaAd:
           break;
