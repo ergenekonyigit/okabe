@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "arayuz.h"
 #include "yazilim.h"
 #include "veri/veritabani.h"
 

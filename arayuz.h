@@ -1,10 +1,12 @@
 #ifndef ARAYUZ_H
 #define ARAYUZ_H
 
+#include "yazilim.h"
 
 class Arayuz
 {
-private:
+protected:
+  Yazilim *yz;
   enum anaMenu {
     Cikis,
     Urunler,

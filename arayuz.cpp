@@ -5,6 +5,13 @@
 
 using namespace std;
 
+Arayuz::Arayuz()
+{
+  this->yz = new Yazilim;
+  anaMenuListe();
+  anaMenuSecim();
+}
+
 void Arayuz::anaMenuListe()
 {
   system("clear");
@@ -78,17 +85,22 @@ void Arayuz::urunMenuSecim()
       anaMenuSecim();
       break;
     case YeniUrun:
-      //urunEklemeIslemi();
+      yz->urunEklemeIslemi();
       break;
     case AdaGoreUrunAra:
+      yz->adaGoreUrunBulmaIslemi();
       break;
     case KodaGoreUrunAra:
+      yz->kodaGoreUrunBulmaIslemi();
       break;
     case UrunleriListele:
+      yz->urunListelemeIslemi();
       break;
     case UrunSil:
+      yz->urunSilmeIslemi();
       break;
     case UrunDuzenle:
+      yz->urunDuzenlemeIslemi();
       break;
     default:
       break;
@@ -125,9 +137,5 @@ void Arayuz::satisMenuSecim()
 
 }
 
-Arayuz::Arayuz()
-{
-  anaMenuListe();
-  anaMenuSecim();
-}
+
 
