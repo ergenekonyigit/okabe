@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "yazilim.h"
+#include "veri/veritabani.h"
 
 using namespace std;
 

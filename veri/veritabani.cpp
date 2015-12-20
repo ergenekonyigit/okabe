@@ -240,7 +240,6 @@ void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, 
   satis->setSatisAdeti(satisAdeti);
   satis->setSatisFiyati(satisFiyati);
   satis->setSatisTarihi(satisTarihi);
-  satis->setKDV(KDV);
   satis->setUrunKodu(urunKodu);
 
   u_vektorSatislar.push_back(satis);

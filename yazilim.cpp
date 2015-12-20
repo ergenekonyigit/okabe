@@ -1,12 +1,14 @@
 #include "yazilim.h"
+#include "veri/veritabani.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 Yazilim::Yazilim()
 {
-
+ this->vt = new Veritabani;
 }
 
 void Yazilim::baslat()
@@ -15,6 +17,7 @@ void Yazilim::baslat()
       islemListesi();
       switch (islemSec()) {
         case UrunEkle:
+
           break;
         case UrunAramaAd:
           break;

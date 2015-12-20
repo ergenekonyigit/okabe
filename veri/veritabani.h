@@ -95,7 +95,6 @@ public:
   void satisSil(int satisKodu);
   Satis *satisBul(int satisKodu);
 
-
 };
 
 #endif // VERITABANI_H

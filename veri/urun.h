@@ -2,7 +2,7 @@
 #define URUN_H
 
 #include <string>
-#include "kategori.h"
+
 using namespace std;
 
 class Urun
