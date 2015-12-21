@@ -511,6 +511,6 @@ float Yazilim::kategoriKarHesaplama(int kategoriKodu)
 }
 
 
-/* ==Bilinen Eksikler==
+/* ==New Features==
  * haftalik-aylik alis ve satislarin listelenmesi
  */
