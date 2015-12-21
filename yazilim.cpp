@@ -291,6 +291,8 @@ void Yazilim::alisListelemeIslemi()
     }
   cout << "───────────────────────────────────────────" << endl;
   cout << "Toplam Alis Sayisi : " << alislar.size() << endl;
+  cout << "Toplam Alis Miktari : " << toplamAlisMiktariHesaplama() << endl;
+  cout << "Toplam Alis Fiyati : " << toplamAlisFiyatiHesaplama() <<endl;
 }
 
 void Yazilim::kodaGoreAlisBulmaIslemi()
@@ -372,6 +374,8 @@ void Yazilim::satisListelemeIslemi()
     }
   cout << "───────────────────────────────────────────" << endl;
   cout << "Toplam Satis Sayisi : " << satislar.size() << endl;
+  cout << "Toplam Satis Miktari : " << toplamSatisMiktariHesaplama() << endl;
+  cout << "Toplam Satis Fiyati : " << toplamSatisFiyatiHesaplama() <<endl;
 }
 
 void Yazilim::kodaGoreSatisBulmaIslemi()
