@@ -27,7 +27,7 @@ void Yazilim::urunEklemeIslemi()
   try {
     this->vt->urunEkle(urunAdi, kategoriKodu);
     cout << "Urun Eklendi!" << endl;
-    cout << urunAdi << " için urun kodu : " << vt->getU_urunKodu() - 1 << endl;
+    cout << urunAdi << " icin urun kodu : " << vt->getU_urunKodu() - 1 << endl;
     cout << "Girilen kategori : " << vt->kategoriBul(kategoriKodu)->getKategoriAdi() << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
@@ -110,7 +110,7 @@ void Yazilim::kategoriEklemeIslemi()
   try {
     this->vt->kategoriEkle(kategoriAdi);
     cout << "Kategori Eklendi!" << endl;
-    cout << kategoriAdi << " için kategori kodu : " << vt->getU_kategoriKodu() - 1 << endl;
+    cout << kategoriAdi << " icin kategori kodu : " << vt->getU_kategoriKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -131,25 +131,28 @@ void Yazilim::kategoriSilmeIslemi()
 
 void Yazilim::kategoriDuzenlemeIslemi()
 {
-  kategoriSilmeIslemi();
-  kategoriEklemeIslemi();
+  int kategoriKodu;
+  string kategoriAdi;
+  cout << "Kategori Kodunu Giriniz : ";
+  cin >> kategoriKodu;
+  cout << "Yeni Kategori Adini Giriniz : ";
+  cin >> kategoriAdi;
+  Kategori *kategori = vt->kategoriBul(kategoriKodu);
+  kategori->setKategoriAdi(kategoriAdi);
+  vt->kategoriGuncelle(kategoriKodu, kategori);
+  cout << "Basarili" << endl;
 }
 
 void Yazilim::kategoriListelemeIslemi()
 {
-  cout << "┌───────────────────────────────────────────┐" << endl;
-  cout << "│              Tüm Kategoriler              │" << endl;
-  cout << "├───────────────────────────────────────────┤" << endl;
-  cout << "  " << "Kategori Adi   "
-       << "  Kategori Kodu"
-       << endl;
-  cout << "  ────────────     ──────────────" << endl;
+
+  cout << "           Tum Kategoriler     " << endl;
+  cout << "==========="  << '\t' << "======================" << endl;
   KategoriVektoru kategoriler =  vt->tumKategoriler();
   for (unsigned int i = 0; i < kategoriler.size(); i++) {
-      cout << setw(10) << kategoriler[i]->getKategoriAdi() << setw(10)
-           << kategoriler[i]->getKategoriKodu() << endl;
+      cout << kategoriler[i]->getKategoriAdi() << '\t' << '\t' << kategoriler[i]->getKategoriKodu() << endl;
     }
-  cout << "└───────────────────────────────────────────┘" << endl;
+  cout << "======================================" << endl;
   cout << "  Toplam Kategori Sayisi : " << kategoriler.size() << endl;
 }
 
@@ -159,7 +162,7 @@ void Yazilim::kategoriUrunleriListelemeIslemi()
   cout << "Kategori kodu : ";
   cin >> kategoriKodu;
   cout << "┌───────────────────────────────────────────┐" << endl;
-  cout << "│           Kategorideki Tüm Ürünler        │" << endl;
+  cout << "│           Kategorideki Tum urunler        │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
   cout << "   " << "Urun Adi   "
        << "     Urun Kodu"
@@ -235,8 +238,8 @@ void Yazilim::alisEklemeIslemi()
 
   try {
     this->vt->alisEkle(urunKodu, alisTarihi, alisFiyati, alisAdeti);
-    cout << "Başarili!" << endl;
-    cout << "Aliş kodu : " << vt->getU_alisKodu() - 1 << endl;
+    cout << "Basarili!" << endl;
+    cout << "Alis kodu : " << vt->getU_alisKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -302,8 +305,8 @@ void Yazilim::satisEklemeIslemi()
 
   try {
     this->vt->satisEkle(urunKodu, satisTarihi, satisFiyati, satisAdeti);
-    cout << "Başarili!" << endl;
-    cout << "Satiş kodu : " << vt->getU_satisKodu() - 1 << endl;
+    cout << "Basarili!" << endl;
+    cout << "Satis kodu : " << vt->getU_satisKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }

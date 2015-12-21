@@ -181,6 +181,15 @@ KategoriVektoru Veritabani::tumKategoriler()
   return u_vektorKategoriler;
 }
 
+Kategori *Veritabani::kategoriGuncelle(int kategoriKodu, Kategori *kategori)
+{
+  if (u_aramaKategoriKodu.count(kategoriKodu) == 0) {
+      throw "Kategori kodu bulunamadi.";
+    }
+  Kategori *eskiKategori = u_aramaKategoriKodu[kategoriKodu];
+  eskiKategori->setKategoriAdi(kategori->getKategoriAdi());
+}
+
 void Veritabani::alisEkle(Alis *alis)
 {
   u_vektorAlislar.push_back(alis);

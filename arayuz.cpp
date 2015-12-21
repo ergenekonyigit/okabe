@@ -150,7 +150,7 @@ void Arayuz::kategoriMenuSecim()
   do {
       cout << "Seciminiz:";
       cin >> secim;
-    } while (secim < 0 || secim > 6);
+    } while (secim < 0 || secim > 7);
 
   switch (secim) {
     case KategoriAnaMenu:

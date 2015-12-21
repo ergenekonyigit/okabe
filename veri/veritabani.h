@@ -87,6 +87,7 @@ public:
   Kategori *kategoriBul(int kategoriKodu);
   KategoriVektoru adaGoreKategoriAra(string kategoriAdi);
   KategoriVektoru tumKategoriler();
+  Kategori *kategoriGuncelle(int kategoriKodu, Kategori *kategori);
 
   void alisEkle(Alis *alis);
   void alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti);
