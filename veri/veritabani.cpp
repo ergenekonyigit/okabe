@@ -98,6 +98,11 @@ UrunVektoru Veritabani::kategoriUrunleri(Kategori *kategori)
   return urunler;
 }
 
+UrunVektoru Veritabani::tumUrunler()
+{
+  return u_vektorUrunler;
+}
+
 void Veritabani::kategoriEkle(Kategori *kategori)
 {
   u_vektorKategoriler.push_back(kategori);

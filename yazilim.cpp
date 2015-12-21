@@ -53,7 +53,10 @@ void Yazilim::urunDuzenlemeIslemi()
 
 void Yazilim::urunListelemeIslemi()
 {
-
+  UrunVektoru urunler =  vt->tumUrunler();
+  for (int i = 0; i < urunler.size(); i++) {
+      cout << urunler[i]->getUrunAdi() << endl;
+    }
 }
 
 void Yazilim::adaGoreUrunBulmaIslemi()

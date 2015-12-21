@@ -79,6 +79,7 @@ public:
   Urun *urunBul(int urunKodu);
   UrunVektoru adaGoreUrunAra(string urunAdi);
   UrunVektoru kategoriUrunleri(Kategori *kategori);
+  UrunVektoru tumUrunler();
 
   void kategoriEkle(Kategori *kategori);
   void kategoriEkle(string kategoriAdi);
