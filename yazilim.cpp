@@ -158,7 +158,6 @@ void Yazilim::kategoriDuzenlemeIslemi()
 
 void Yazilim::kategoriListelemeIslemi()
 {
-
   cout << "           Tum Kategoriler     " << endl;
   cout << "==========="  << '\t' << "======================" << endl;
   KategoriVektoru kategoriler =  vt->tumKategoriler();
@@ -266,6 +265,7 @@ void Yazilim::alisSilmeIslemi()
 
   try {
     this->vt->alisSil(alisKodu);
+    cout << "Basarili!";
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -279,7 +279,25 @@ void Yazilim::alisDuzenlemeIslemi()
 
 void Yazilim::alisListelemeIslemi()
 {
-
+  cout << "              Tum Alislar               " << endl;
+  cout << "========================================" << endl;
+  cout << "Alis" <<
+          '\t' << "Urun" <<
+          '\t' << "Fiyat" <<
+          '\t' << "Adet" <<
+          '\t' << "Tarih" <<
+          endl;
+  AlisVektoru alislar =  vt->tumAlislar();
+  for (unsigned int i = 0; i < alislar.size(); i++) {
+      cout << alislar[i]->getAlisKodu() <<
+              '\t' << vt->urunBul(alislar[i]->getUrunKodu())->getUrunAdi() <<
+              '\t' << alislar[i]->getAlisFiyati() <<
+              '\t' << alislar[i]->getAlisAdeti() <<
+              '\t' << alislar[i]->getAlisTarihi() <<
+              endl;
+    }
+  cout << "========================================" << endl;
+  cout << "  Toplam Alis Sayisi : " << alislar.size() << endl;
 }
 
 void Yazilim::kodaGoreAlisBulmaIslemi()
@@ -333,6 +351,7 @@ void Yazilim::satisSilmeIslemi()
 
   try {
     this->vt->satisSil(satisKodu);
+    cout << "Basarili!";
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -346,7 +365,25 @@ void Yazilim::satisDuzenlemeIslemi()
 
 void Yazilim::satisListelemeIslemi()
 {
-
+  cout << "              Tum Satislar               " << endl;
+  cout << "========================================" << endl;
+  cout << "Satis" <<
+          '\t' << "Urun" <<
+          '\t' << "Fiyat" <<
+          '\t' << "Adet" <<
+          '\t' << "Tarih" <<
+          endl;
+  SatisVektoru satislar = vt->tumSatislar();
+  for (unsigned int i = 0; i < satislar.size(); i++) {
+      cout << satislar[i]->getSatisKodu() <<
+              '\t' << vt->urunBul(satislar[i]->getUrunKodu())->getUrunAdi() <<
+              '\t' << satislar[i]->getSatisFiyati() <<
+              '\t' << satislar[i]->getSatisAdeti() <<
+              '\t' << satislar[i]->getSatisTarihi() <<
+              endl;
+    }
+  cout << "========================================" << endl;
+  cout << "  Toplam Satis Sayisi : " << satislar.size() << endl;
 }
 
 void Yazilim::kodaGoreSatisBulmaIslemi()

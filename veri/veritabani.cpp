@@ -117,10 +117,6 @@ void Veritabani::kategoriEkle(Kategori *kategori)
 
 void Veritabani::kategoriEkle(string kategoriAdi)
 {
-  /*if (u_aramaKategoriKodu.count(kategoriKodu) == 1) {
-      throw "Ayni kodlu baska bir kategori var.";
-    }
-  */
   Kategori* kategori = new Kategori;
   kategori->setKategoriAdi(kategoriAdi);
   kategori->setKategoriKodu(u_kategoriKodu);
@@ -297,7 +293,7 @@ void Veritabani::satisSil(int satisKodu)
 
 Satis *Veritabani::satisBul(int satisKodu)
 {
-  if (u_aramaUrunKodu.count(satisKodu) == 0) {
+  if (u_aramaSatisKodu.count(satisKodu) == 0) {
       throw "Satis kodu bulunamadi.";
     }
   return u_aramaSatisKodu[satisKodu];
