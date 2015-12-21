@@ -401,12 +401,12 @@ float Yazilim::gunlukKarHesabi(string tarih)
   float alisToplami = 0, satisToplami = 0, kar = 0;
   for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
       if (vt->tumAlislar()[i]->getAlisTarihi() == tarih) {
-          alisToplami += vt->tumAlislar()[i]->getAlisFiyati();
+          alisToplami += vt->tumAlislar()[i]->getAlisFiyati() * vt->tumAlislar()[i]->getAlisAdeti();
         }
     }
   for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
       if (vt->tumSatislar()[i]->getSatisTarihi() == tarih) {
-          satisToplami += vt->tumAlislar()[i]->getAlisFiyati();
+          satisToplami += vt->tumSatislar()[i]->getSatisFiyati() * vt->tumSatislar()[i]->getSatisAdeti();
         }
     }
   kar = satisToplami - alisToplami;
@@ -426,7 +426,7 @@ float Yazilim::toplamAlisFiyatiHesaplama()
 {
   float sonuc = 0;
   for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
-      sonuc += vt->tumAlislar()[i]->getAlisFiyati();
+      sonuc += vt->tumAlislar()[i]->getAlisFiyati() * vt->tumAlislar()[i]->getAlisAdeti();
     }
   return sonuc;
 }
@@ -444,19 +444,39 @@ float Yazilim::toplamSatisFiyatiHesaplama()
 {
   float sonuc = 0;
   for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
-      sonuc += vt->tumSatislar()[i]->getSatisFiyati();
+      sonuc += vt->tumSatislar()[i]->getSatisFiyati() * vt->tumSatislar()[i]->getSatisAdeti();
     }
   return sonuc;
 }
 
 float Yazilim::kategoriToplamAlisHesaplama(int kategoriKod)
 {
-
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
+      for (unsigned j = 0;
+           j < vt->kategoriUrunleri(kategoriKod).size();
+           j++) {
+          if (vt->kategoriUrunleri(kategoriKod)[j]->getUrunKodu() == vt->tumAlislar()[i]->getUrunKodu()) {
+              sonuc += vt->tumAlislar()[i]->getAlisAdeti();
+            }
+        }
+    }
+  return sonuc;
 }
 
 float Yazilim::kategoriToplamSatisHesaplama(int kategoriKod)
 {
-
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
+      for (unsigned j = 0;
+           j < vt->kategoriUrunleri(kategoriKod).size();
+           j++) {
+          if (vt->kategoriUrunleri(kategoriKod)[j]->getUrunKodu() == vt->tumSatislar()[i]->getUrunKodu()) {
+              sonuc += vt->tumSatislar()[i]->getSatisAdeti();
+            }
+        }
+    }
+  return sonuc;
 }
 
 

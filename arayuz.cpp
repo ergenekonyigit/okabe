@@ -22,8 +22,9 @@ void Arayuz::anaMenuListe()
   cout << "│  2  ▸  Kategoriler                        │" << endl;
   cout << "│  3  ▸  Alislar                            │" << endl;
   cout << "│  4  ▸  Satislar                           │" << endl;
-  cout << "│  5  ▸  Kullanim                           │" << endl;
-  cout << "│  6  ▸  Hakkinda                           │" << endl;
+  cout << "│  5  ▸  Gunluk Kar Hesabi                  │" << endl;
+  cout << "│  6  ▸  Kullanim                           │" << endl;
+  cout << "│  7  ▸  Hakkinda                           │" << endl;
   cout << "│  0  ▸  Cikis                              │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -34,7 +35,7 @@ void Arayuz::anaMenuSecim()
   do {
       cout << "Seciminiz:";
       cin >> secim;
-    } while (secim < 0 || secim > 7);
+    } while (secim < 0 || secim > 8);
 
   switch (secim) {
     case Cikis:
@@ -67,6 +68,9 @@ void Arayuz::anaMenuSecim()
     case Tazele:
       anaMenuListe();
       anaMenuSecim();
+      break;
+    case GunlukKar:
+      gunlukHesapCiktisi();
       break;
     default:
       break;
@@ -305,7 +309,7 @@ void Arayuz::kullanim()
   cout << "│  Geribildirim : yigitergenekon@gmail.com  │" << endl;
   cout << "│                                           │" << endl;
   cout << "│                                           │" << endl;
-  cout << "│  • Ana Menuye Donmek Icin 7'ye basiniz •  │" << endl;
+  cout << "│  • Ana Menuye Donmek Icin 8'e basiniz •   │" << endl;
   cout << "│                                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -326,6 +330,14 @@ void Arayuz::hakkinda()
   cout << "│                Okabe Inc.                 │" << endl;
   cout << "│                                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
+}
+
+void Arayuz::gunlukHesapCiktisi()
+{
+  string tarih;
+  cout << "Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
+  cin >> tarih;
+  cout << "Gunluk kar : " << yz->gunlukKarHesabi(tarih) << endl;
 }
 
 
