@@ -13,6 +13,7 @@ protected:
     Kategoriler,
     Alislar,
     Satislar,
+    GunlukKar,
     Kullanim,
     Hakkinda,
     Tazele
@@ -73,8 +74,8 @@ protected:
   void satisMenuSecim();
 
   void kullanim();
-
   void hakkinda();
+  void gunlukHesapCiktisi();
 public:
   Arayuz();
 };
