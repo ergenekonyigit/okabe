@@ -78,7 +78,7 @@ public:
   void urunSil(int urunKodu);
   Urun *urunBul(int urunKodu);
   UrunVektoru adaGoreUrunAra(string urunAdi);
-  UrunVektoru kategoriUrunleri(Kategori *kategori);
+  UrunVektoru kategoriUrunleri(int kategoriKodu);
   UrunVektoru tumUrunler();
 
   void kategoriEkle(Kategori *kategori);
@@ -86,16 +86,19 @@ public:
   void kategoriSil(int kategoriKodu);
   Kategori *kategoriBul(int kategoriKodu);
   KategoriVektoru adaGoreKategoriAra(string kategoriAdi);
+  KategoriVektoru tumKategoriler();
 
   void alisEkle(Alis *alis);
   void alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti);
   void alisSil(int alisKodu);
   Alis *alisBul(int alisKodu);
+  AlisVektoru tumAlislar();
 
   void satisEkle(Satis *satis);
   void satisEkle(int urunKodu, string satisTarihi, float satisFiyati, int satisAdeti);
   void satisSil(int satisKodu);
   Satis *satisBul(int satisKodu);
+  SatisVektoru tumSatislar();
 
   int getU_urunKodu();
   void setU_urunKodu(int value);

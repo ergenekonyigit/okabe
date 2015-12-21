@@ -84,8 +84,9 @@ UrunVektoru Veritabani::adaGoreUrunAra(string urunAdi)
   return urunler;
 }
 
-UrunVektoru Veritabani::kategoriUrunleri(Kategori *kategori)
+UrunVektoru Veritabani::kategoriUrunleri(int kategoriKodu)
 {
+  Kategori *kategori = u_aramaKategoriKodu[kategoriKodu];
   UrunVektoru urunler;
   auto iliskiKategoriUrun = u_iliskiKategoriUrun.equal_range(kategori);
   for (auto i = iliskiKategoriUrun.first;
@@ -156,7 +157,7 @@ void Veritabani::kategoriSil(int kategoriKodu)
 
 Kategori *Veritabani::kategoriBul(int kategoriKodu)
 {
-  if (u_aramaUrunKodu.count(kategoriKodu) == 0) {
+  if (u_aramaKategoriKodu.count(kategoriKodu) == 0) {
       throw "Kategori kodu bulunamadi.";
     }
   return u_aramaKategoriKodu[kategoriKodu];
@@ -165,15 +166,19 @@ Kategori *Veritabani::kategoriBul(int kategoriKodu)
 KategoriVektoru Veritabani::adaGoreKategoriAra(string kategoriAdi)
 {
   KategoriVektoru sonuc;
-
-  adaGoreKategoriGezgini baslangic, bitis;
-  baslangic = u_aramaKategoriAdi.lower_bound(kategoriAdi);
-  bitis = u_aramaKategoriAdi.upper_bound(kategoriAdi);
-
-  for (adaGoreKategoriGezgini i = baslangic; i != bitis; i++) {
-      sonuc.push_back(i->second);
+  for (adaGoreKategoriGezgini i = u_aramaKategoriAdi.begin();
+       i != u_aramaKategoriAdi.end();
+       i++) {
+      if (i->second->getKategoriAdi().find(kategoriAdi) != string::npos) {
+          sonuc.push_back(i->second);
+        }
     }
   return sonuc;
+}
+
+KategoriVektoru Veritabani::tumKategoriler()
+{
+  return u_vektorKategoriler;
 }
 
 void Veritabani::alisEkle(Alis *alis)
@@ -227,6 +232,11 @@ Alis *Veritabani::alisBul(int alisKodu)
   return u_aramaAlisKodu[alisKodu];
 }
 
+AlisVektoru Veritabani::tumAlislar()
+{
+  return u_vektorAlislar;
+}
+
 void Veritabani::satisEkle(Satis *satis)
 {
   u_vektorSatislar.push_back(satis);
@@ -276,6 +286,11 @@ Satis *Veritabani::satisBul(int satisKodu)
       throw "Satis kodu bulunamadi.";
     }
   return u_aramaSatisKodu[satisKodu];
+}
+
+SatisVektoru Veritabani::tumSatislar()
+{
+  return u_vektorSatislar;
 }
 
 int Veritabani::getU_urunKodu()

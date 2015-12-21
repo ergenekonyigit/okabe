@@ -135,7 +135,7 @@ void Arayuz::kategoriMenuListe()
   cout << "├───────────────────────────────────────────┤" << endl;
   cout << "│  1  ▸  Yeni Kategori                      │" << endl;
   cout << "│  2  ▸  Ada Gore Kategori Ara              │" << endl;
-  cout << "│  3  ▸  Koda Gore Urun Ara                 │" << endl;
+  cout << "│  3  ▸  Koda Gore Kategori Ara             │" << endl;
   cout << "│  4  ▸  Kategorileri Listele               │" << endl;
   cout << "│  5  ▸  Kategori Urunleri Listele          │" << endl;
   cout << "│  6  ▸  Kategori Sil                       │" << endl;
@@ -243,7 +243,7 @@ void Arayuz::satisMenuListe()
   cout << "│  2  ▸  Satislari listele                  │" << endl;
   cout << "│  3  ▸  Satis sil                          │" << endl;
   cout << "│  4  ▸  Satis duzenle                      │" << endl;
-  cout << "│  5  ▸  Alis bul (koda göre)               │" << endl;
+  cout << "│  5  ▸  Satis bul (koda göre)              │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }

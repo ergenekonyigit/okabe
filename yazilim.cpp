@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 #include "yazilim.h"
 #include "veri/veritabani.h"
+
 
 using namespace std;
 
@@ -54,7 +56,7 @@ void Yazilim::urunDuzenlemeIslemi()
 void Yazilim::urunListelemeIslemi()
 {
   UrunVektoru urunler =  vt->tumUrunler();
-  for (int i = 0; i < urunler.size(); i++) {
+  for (unsigned int i = 0; i < urunler.size(); i++) {
       cout << urunler[i]->getUrunAdi() << endl;
     }
 }
@@ -121,7 +123,7 @@ void Yazilim::kategoriSilmeIslemi()
   cin >> kategoriKodu;
 
   try {
-    this->vt->urunSil(kategoriKodu);
+    this->vt->kategoriSil(kategoriKodu);
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -135,22 +137,41 @@ void Yazilim::kategoriDuzenlemeIslemi()
 
 void Yazilim::kategoriListelemeIslemi()
 {
-  /*
-  KategoriVektoru sonuc;
-  cout << "Kategori Kodu" << '\t' << "      Kategori Adi    " << endl;
-  cout << "============="  << '\t' << "======================" << endl;
-  for (KategoriGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
-      Kategori *kategori_i = *i;
-      cout << kategori_i->getKategoriKodu() << '\t' << '\t' << kategori_i->getKategoriAdi() << endl;
+  cout << "┌───────────────────────────────────────────┐" << endl;
+  cout << "│              Tüm Kategoriler              │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "  " << "Kategori Adi   "
+       << "  Kategori Kodu"
+       << endl;
+  cout << "  ────────────     ──────────────" << endl;
+  KategoriVektoru kategoriler =  vt->tumKategoriler();
+  for (unsigned int i = 0; i < kategoriler.size(); i++) {
+      cout << setw(10) << kategoriler[i]->getKategoriAdi() << setw(10)
+           << kategoriler[i]->getKategoriKodu() << endl;
     }
-  cout << "======================================" << endl;
-  cout << "Toplam Kategori Sayisi : " << sonuc.size() << endl;
-  */
+  cout << "└───────────────────────────────────────────┘" << endl;
+  cout << "  Toplam Kategori Sayisi : " << kategoriler.size() << endl;
 }
 
 void Yazilim::kategoriUrunleriListelemeIslemi()
 {
-
+  int kategoriKodu;
+  cout << "Kategori kodu : ";
+  cin >> kategoriKodu;
+  cout << "┌───────────────────────────────────────────┐" << endl;
+  cout << "│           Kategorideki Tüm Ürünler        │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "   " << "Urun Adi   "
+       << "     Urun Kodu"
+       << endl;
+  cout << "  ────────────     ──────────────" << endl;
+  UrunVektoru urunler =  vt->kategoriUrunleri(kategoriKodu);
+  for (unsigned int i = 0; i < urunler.size(); i++) {
+      cout << setw(10) << urunler[i]->getUrunAdi() << setw(10)
+           << urunler[i]->getUrunKodu() << endl;
+    }
+  cout << "└───────────────────────────────────────────┘" << endl;
+  cout << "  Toplam Urun Sayisi : " << urunler.size() << endl;
 }
 
 void Yazilim::adaGoreKategoriBulmaIslemi()
@@ -163,14 +184,19 @@ void Yazilim::adaGoreKategoriBulmaIslemi()
 
   KategoriVektoru sonuc = this->vt->adaGoreKategoriAra(kategoriAdi);
 
-  cout << "Kategori Kodu" << '\t' << "      Kategori Adi    " << endl;
-  cout << "============="  << '\t' << "======================" << endl;
-  for (KategoriGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
-      Kategori *kategori_i = *i;
-      cout << kategori_i->getKategoriKodu() << '\t' << '\t' << kategori_i->getKategoriAdi() << endl;
+  if (sonuc.size() == 0) {
+      cout << "Kategori bulunamadi. Tam adi giriniz." << endl;
     }
-  cout << "======================================" << endl;
-  cout << "Toplam Kategori Sayisi : " << sonuc.size() << endl;
+  else {
+      cout << "Kategori Kodu" << '\t' << "      Kategori Adi    " << endl;
+      cout << "============="  << '\t' << "======================" << endl;
+      for (KategoriGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
+          Kategori *kategori_i = *i;
+          cout << kategori_i->getKategoriKodu() << '\t' << '\t' << kategori_i->getKategoriAdi() << endl;
+        }
+      cout << "======================================" << endl;
+      cout << "Toplam Kategori Sayisi : " << sonuc.size() << endl;
+    }
 }
 
 void Yazilim::kodaGoreKategoriBulmaIslemi()
@@ -209,8 +235,8 @@ void Yazilim::alisEklemeIslemi()
 
   try {
     this->vt->alisEkle(urunKodu, alisTarihi, alisFiyati, alisAdeti);
-    cout << "Başarılı!" << endl;
-    cout << "Alış kodu : " << vt->getU_alisKodu() - 1 << endl;
+    cout << "Başarili!" << endl;
+    cout << "Aliş kodu : " << vt->getU_alisKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -276,8 +302,8 @@ void Yazilim::satisEklemeIslemi()
 
   try {
     this->vt->satisEkle(urunKodu, satisTarihi, satisFiyati, satisAdeti);
-    cout << "Başarılı!" << endl;
-    cout << "Satış kodu : " << vt->getU_satisKodu() - 1 << endl;
+    cout << "Başarili!" << endl;
+    cout << "Satiş kodu : " << vt->getU_satisKodu() - 1 << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
