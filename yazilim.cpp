@@ -26,6 +26,7 @@ void Yazilim::urunEklemeIslemi()
     this->vt->urunEkle(urunAdi, kategoriKodu);
     cout << "Urun Eklendi!" << endl;
     cout << urunAdi << " için urun kodu : " << vt->getU_urunKodu() - 1 << endl;
+    cout << "Girilen kategori : " << vt->kategoriBul(kategoriKodu)->getKategoriAdi() << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
