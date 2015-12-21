@@ -1,7 +1,7 @@
 #include "arayuz.h"
+#include "yazilim.h"
 
 #include <iostream>
-#include "yazilim.h"
 
 using namespace std;
 
