@@ -141,7 +141,7 @@ void Arayuz::kategoriMenuListe()
   cout << "│  2  ▸  Ada Gore Kategori Ara              │" << endl;
   cout << "│  3  ▸  Koda Gore Kategori Ara             │" << endl;
   cout << "│  4  ▸  Kategorileri Listele               │" << endl;
-  cout << "│  5  ▸  Kategori Urunleri Listele          │" << endl;
+  cout << "│  5  ▸  Kategori Detay                     │" << endl;
   cout << "│  6  ▸  Kategori Sil                       │" << endl;
   cout << "│  7  ▸  Kategori Duzenle                   │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
@@ -173,19 +173,83 @@ void Arayuz::kategoriMenuSecim()
     case KategoriListele:
       yz->kategoriListelemeIslemi();
       break;
-    case KategoriUrunleriListele:
-      yz->kategoriUrunleriListelemeIslemi();
-      break;
     case KategoriSil:
       yz->kategoriSilmeIslemi();
       break;
     case KategoriDuzenle:
       yz->kategoriDuzenlemeIslemi();
       break;
+    case KategoriDetay:
+      kategoriDetayMenuListe();
+      int kategoriKodu;
+      cout << "Kategori Kodu : ";
+      cin >>kategoriKodu;
+      kategoriDetayMenuSecim(kategoriKodu);
+      break;
     default:
       break;
     }
   kategoriMenuSecim();
+}
+
+void Arayuz::kategoriDetayMenuListe()
+{
+  system("clear");
+  cout << "┌───────────────────────────────────────────┐" << endl;
+  cout << "│        Kategoriler  ▸  KategoriDetay      │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  1  ▸  Urunler                            │" << endl;
+  cout << "│  2  ▸  Alislar                            │" << endl;
+  cout << "│  3  ▸  Satislar                           │" << endl;
+  cout << "│  4  ▸  Kar                                │" << endl;
+  cout << "│  5  ▸  Ust Menu                           │" << endl;
+  cout << "│  0  ▸  Ana Menu                           │" << endl;
+  cout << "└───────────────────────────────────────────┘" << endl;
+}
+
+void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
+{
+  int secim;
+  do {
+      cout << "Seciminiz:";
+      cin >> secim;
+    } while (secim < 0 || secim > 5);
+
+  switch (secim) {
+    case KategoriDetayAnaMenu:
+      anaMenuListe();
+      anaMenuSecim();
+      break;
+    case KategoriDetayKategoriler:
+      kategoriMenuListe();
+      kategoriMenuSecim();
+      break;
+    case KategoriDetayUrunler:
+      yz->kategoriUrunleriListelemeIslemi(kategoriKodu);
+      break;
+    case KategoriDetayToplamAlis:
+      cout << "Alis Miktari : "
+          << yz->kategoriToplamAlisMiktariHesaplama(kategoriKodu)
+          << endl
+          << "Alis Fiyati : "
+          << yz->kategoriToplamAlisFiyatiHesaplama(kategoriKodu)
+          << endl;
+      break;
+    case KategoriDetayToplamSatis:
+      cout << "Satis Miktari : "
+          << yz->kategoriToplamSatisMiktariHesaplama(kategoriKodu)
+          << endl
+          << "Satis Fiyati : "
+          << yz->kategoriToplamSatisFiyatiHesaplama(kategoriKodu)
+          << endl;
+      break;
+    case KategoriDetayKar:
+      cout << yz->kategoriKarHesaplama(kategoriKodu) << endl;
+      break;
+    default:
+      break;
+    }
+  kategoriDetayMenuSecim(kategoriKodu);
 }
 
 void Arayuz::alisMenuListe()

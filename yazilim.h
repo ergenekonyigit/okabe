@@ -21,7 +21,7 @@ public:
   void kategoriSilmeIslemi();
   void kategoriDuzenlemeIslemi();
   void kategoriListelemeIslemi();
-  void kategoriUrunleriListelemeIslemi();
+  void kategoriUrunleriListelemeIslemi(int kategoriKodu);
   void adaGoreKategoriBulmaIslemi();
   void kodaGoreKategoriBulmaIslemi();
 
@@ -42,8 +42,12 @@ public:
   float toplamAlisFiyatiHesaplama();
   float toplamSatisMiktariHesaplama();
   float toplamSatisFiyatiHesaplama();
-  float kategoriToplamAlisHesaplama(int kategoriKod);
-  float kategoriToplamSatisHesaplama(int kategoriKod);
+
+  float kategoriToplamAlisMiktariHesaplama(int kategoriKod);
+  float kategoriToplamSatisMiktariHesaplama(int kategoriKod);
+  float kategoriToplamAlisFiyatiHesaplama(int kategoriKod);
+  float kategoriToplamSatisFiyatiHesaplama(int kategoriKod);
+  float kategoriKarHesaplama(int kategoriKodu);
 
 };
 

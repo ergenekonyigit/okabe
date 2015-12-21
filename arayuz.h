@@ -35,9 +35,18 @@ protected:
     AdaGoreKategoriAra,
     KodaGoreKategoriAra,
     KategoriListele,
-    KategoriUrunleriListele,
+    KategoriDetay,
     KategoriSil,
     KategoriDuzenle
+  };
+
+  enum kategoriDetayMenu {
+    KategoriDetayAnaMenu,
+    KategoriDetayUrunler,
+    KategoriDetayToplamAlis,
+    KategoriDetayToplamSatis,
+    KategoriDetayKar,
+    KategoriDetayKategoriler
   };
 
   enum alisMenu {
@@ -66,6 +75,9 @@ protected:
 
   void kategoriMenuListe();
   void kategoriMenuSecim();
+
+  void kategoriDetayMenuListe();
+  void kategoriDetayMenuSecim(int kategoriKodu);
 
   void alisMenuListe();
   void alisMenuSecim();

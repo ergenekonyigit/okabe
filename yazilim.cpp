@@ -169,12 +169,8 @@ void Yazilim::kategoriListelemeIslemi()
   cout << "Toplam Kategori Sayisi : " << kategoriler.size() << endl;
 }
 
-void Yazilim::kategoriUrunleriListelemeIslemi()
+void Yazilim::kategoriUrunleriListelemeIslemi(int kategoriKodu)
 {
-  int kategoriKodu;
-  cout << "Kategori kodu : ";
-  cin >> kategoriKodu;
-
   cout << "          Kategorideki Tum Urunler         " << endl;
   cout << "───────────────────────────────────────────" << endl;
   cout << "Urun Adi" << '\t' << '\t' << "Urun Kodu"     << endl;
@@ -445,7 +441,7 @@ float Yazilim::toplamSatisFiyatiHesaplama()
   return sonuc;
 }
 
-float Yazilim::kategoriToplamAlisHesaplama(int kategoriKod)
+float Yazilim::kategoriToplamAlisMiktariHesaplama(int kategoriKod)
 {
   float sonuc = 0;
   for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
@@ -460,7 +456,7 @@ float Yazilim::kategoriToplamAlisHesaplama(int kategoriKod)
   return sonuc;
 }
 
-float Yazilim::kategoriToplamSatisHesaplama(int kategoriKod)
+float Yazilim::kategoriToplamSatisMiktariHesaplama(int kategoriKod)
 {
   float sonuc = 0;
   for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
@@ -473,6 +469,41 @@ float Yazilim::kategoriToplamSatisHesaplama(int kategoriKod)
         }
     }
   return sonuc;
+}
+
+float Yazilim::kategoriToplamAlisFiyatiHesaplama(int kategoriKod)
+{
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
+      for (unsigned j = 0;
+           j < vt->kategoriUrunleri(kategoriKod).size();
+           j++) {
+          if (vt->kategoriUrunleri(kategoriKod)[j]->getUrunKodu() == vt->tumAlislar()[i]->getUrunKodu()) {
+              sonuc += vt->tumAlislar()[i]->getAlisAdeti() * vt->tumAlislar()[i]->getAlisFiyati();
+            }
+        }
+    }
+  return sonuc;
+}
+
+float Yazilim::kategoriToplamSatisFiyatiHesaplama(int kategoriKod)
+{
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
+      for (unsigned j = 0;
+           j < vt->kategoriUrunleri(kategoriKod).size();
+           j++) {
+          if (vt->kategoriUrunleri(kategoriKod)[j]->getUrunKodu() == vt->tumSatislar()[i]->getUrunKodu()) {
+              sonuc += vt->tumSatislar()[i]->getSatisAdeti() * vt->tumSatislar()[i]->getSatisFiyati();
+            }
+        }
+    }
+  return sonuc;
+}
+
+float Yazilim::kategoriKarHesaplama(int kategoriKodu)
+{
+  return kategoriToplamSatisFiyatiHesaplama(kategoriKodu) - kategoriToplamAlisFiyatiHesaplama(kategoriKodu);
 }
 
 
