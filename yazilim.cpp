@@ -392,34 +392,65 @@ void Yazilim::kodaGoreSatisBulmaIslemi()
   }
 }
 
-void Yazilim::gunlukKarHesabiIslemi()
+float Yazilim::gunlukKarHesabi(string tarih)
 {
-  int tarih;
-  cout << "Kar Hesabi Yapilacak Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin >> tarih;
-  AlisVektoru alis = this->vt->tumAlislar();
-  SatisVektoru satis = this->vt->tumSatislar();
-  /*
-   *
-   */
+  float alisToplami = 0, satisToplami = 0, kar = 0;
+  for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
+      if (vt->tumAlislar()[i]->getAlisTarihi() == tarih) {
+          alisToplami += vt->tumAlislar()[i]->getAlisFiyati();
+        }
+    }
+  for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
+      if (vt->tumSatislar()[i]->getSatisTarihi() == tarih) {
+          satisToplami += vt->tumAlislar()[i]->getAlisFiyati();
+        }
+    }
+  kar = satisToplami - alisToplami;
+  return kar;
 }
 
-void Yazilim::toplamAlisMiktariHesaplamaIslemi()
+float Yazilim::toplamAlisMiktariHesaplama()
+{
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
+      sonuc += vt->tumAlislar()[i]->getAlisAdeti();
+    }
+  return sonuc;
+}
+
+float Yazilim::toplamAlisFiyatiHesaplama()
+{
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
+      sonuc += vt->tumAlislar()[i]->getAlisFiyati();
+    }
+  return sonuc;
+}
+
+float Yazilim::toplamSatisMiktariHesaplama()
+{
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
+      sonuc += vt->tumSatislar()[i]->getSatisAdeti();
+    }
+  return sonuc;
+}
+
+float Yazilim::toplamSatisFiyatiHesaplama()
+{
+  float sonuc = 0;
+  for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
+      sonuc += vt->tumSatislar()[i]->getSatisFiyati();
+    }
+  return sonuc;
+}
+
+float Yazilim::kategoriToplamAlisHesaplama(int kategoriKod)
 {
 
 }
 
-void Yazilim::toplamAlisFiyatiHesaplamaIslemi()
-{
-
-}
-
-void Yazilim::kategoriToplamAlisHesaplamaIslemi()
-{
-
-}
-
-void Yazilim::kategoriToplamSatisHesaplamaIslemi()
+float Yazilim::kategoriToplamSatisHesaplama(int kategoriKod)
 {
 
 }

@@ -37,11 +37,13 @@ public:
   void satisListelemeIslemi();
   void kodaGoreSatisBulmaIslemi();
 
-  void gunlukKarHesabiIslemi();
-  void toplamAlisMiktariHesaplamaIslemi();
-  void toplamAlisFiyatiHesaplamaIslemi();
-  void kategoriToplamAlisHesaplamaIslemi();
-  void kategoriToplamSatisHesaplamaIslemi();
+  float gunlukKarHesabi(string tarih);
+  float toplamAlisMiktariHesaplama();
+  float toplamAlisFiyatiHesaplama();
+  float toplamSatisMiktariHesaplama();
+  float toplamSatisFiyatiHesaplama();
+  float kategoriToplamAlisHesaplama(int kategoriKod);
+  float kategoriToplamSatisHesaplama(int kategoriKod);
 
 };
 
