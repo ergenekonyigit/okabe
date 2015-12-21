@@ -80,6 +80,7 @@ public:
   UrunVektoru adaGoreUrunAra(string urunAdi);
   UrunVektoru kategoriUrunleri(int kategoriKodu);
   UrunVektoru tumUrunler();
+  void urunGuncelle(int urunKodu, Urun *urun);
 
   void kategoriEkle(Kategori *kategori);
   void kategoriEkle(string kategoriAdi);
@@ -87,7 +88,7 @@ public:
   Kategori *kategoriBul(int kategoriKodu);
   KategoriVektoru adaGoreKategoriAra(string kategoriAdi);
   KategoriVektoru tumKategoriler();
-  Kategori *kategoriGuncelle(int kategoriKodu, Kategori *kategori);
+  void kategoriGuncelle(int kategoriKodu, Kategori *kategori);
 
   void alisEkle(Alis *alis);
   void alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti);

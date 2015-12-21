@@ -10,10 +10,10 @@ void Veritabani::urunEkle(Urun *urun)
 void Veritabani::urunEkle(string urunAdi, int kategoriKodu)
 {
   /*if (u_aramaUrunKodu.count(urunKodu) == 1) {
-      throw "Aynı kodlu başka bir ürün var.";
+      throw "Ayni kodlu başka bir ürün var.";
     }*/
   if (u_aramaKategoriKodu.count(kategoriKodu) == 0) {
-      throw "Kategori kodu bulunamadı.";
+      throw "Kategori kodu bulunamadi.";
     }
 
   Urun *urun = new Urun;
@@ -32,7 +32,7 @@ void Veritabani::urunEkle(string urunAdi, int kategoriKodu)
 void Veritabani::urunSil(int urunKodu)
 {
   if (u_aramaUrunKodu.count(urunKodu) == 0) {
-      throw "Silinecek ürün bulunamadı.";
+      throw "Silinecek ürün bulunamadi.";
     }
   Urun *silinecekUrun = u_aramaUrunKodu[urunKodu];
 
@@ -63,7 +63,7 @@ void Veritabani::urunSil(int urunKodu)
 Urun *Veritabani::urunBul(int urunKodu)
 {
   if (u_aramaUrunKodu.count(urunKodu) == 0) {
-      throw "Ürün bulunamadı.";
+      throw "Ürün bulunamadi.";
     }
   return u_aramaUrunKodu[urunKodu];
 }
@@ -71,13 +71,10 @@ Urun *Veritabani::urunBul(int urunKodu)
 UrunVektoru Veritabani::adaGoreUrunAra(string urunAdi)
 {
   UrunVektoru urunler;
-  if (u_aramaUrunAdi.count(urunAdi) == 0) {
-      throw "Ürün bulunamadı.";
-    }
   for (adaGoreUrunGezgini i = u_aramaUrunAdi.begin();
        i != u_aramaUrunAdi.end();
        i++) {
-      if (i->first == urunAdi) {
+      if (i->second->getUrunAdi().find(urunAdi) != string::npos) {
           urunler.push_back(i->second);
         }
     }
@@ -102,6 +99,15 @@ UrunVektoru Veritabani::kategoriUrunleri(int kategoriKodu)
 UrunVektoru Veritabani::tumUrunler()
 {
   return u_vektorUrunler;
+}
+
+void Veritabani::urunGuncelle(int urunKodu, Urun *urun)
+{
+  if (u_aramaUrunKodu.count(urunKodu) == 0) {
+      throw "Urun kodu bulunamadi.";
+    }
+  Urun *eskiUrun = u_aramaUrunKodu[urunKodu];
+  eskiUrun->setUrunAdi(urun->getUrunAdi());
 }
 
 void Veritabani::kategoriEkle(Kategori *kategori)
@@ -165,15 +171,15 @@ Kategori *Veritabani::kategoriBul(int kategoriKodu)
 
 KategoriVektoru Veritabani::adaGoreKategoriAra(string kategoriAdi)
 {
-  KategoriVektoru sonuc;
+  KategoriVektoru kategoriler;
   for (adaGoreKategoriGezgini i = u_aramaKategoriAdi.begin();
        i != u_aramaKategoriAdi.end();
        i++) {
       if (i->second->getKategoriAdi().find(kategoriAdi) != string::npos) {
-          sonuc.push_back(i->second);
+          kategoriler.push_back(i->second);
         }
     }
-  return sonuc;
+  return kategoriler;
 }
 
 KategoriVektoru Veritabani::tumKategoriler()
@@ -181,7 +187,7 @@ KategoriVektoru Veritabani::tumKategoriler()
   return u_vektorKategoriler;
 }
 
-Kategori *Veritabani::kategoriGuncelle(int kategoriKodu, Kategori *kategori)
+void Veritabani::kategoriGuncelle(int kategoriKodu, Kategori *kategori)
 {
   if (u_aramaKategoriKodu.count(kategoriKodu) == 0) {
       throw "Kategori kodu bulunamadi.";
@@ -217,7 +223,7 @@ void Veritabani::alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int
 void Veritabani::alisSil(int alisKodu)
 {
   if (u_aramaAlisKodu.count(alisKodu) == 0) {
-      throw "Silinecek alis islemi bulunamadı.";
+      throw "Silinecek alis islemi bulunamadi.";
     }
 
   Alis *silinecekAlis = u_aramaAlisKodu[alisKodu];
@@ -273,7 +279,7 @@ void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, 
 void Veritabani::satisSil(int satisKodu)
 {
   if (u_aramaSatisKodu.count(satisKodu) == 0) {
-      throw "Silinecek satis islemi bulunamadı.";
+      throw "Silinecek satis islemi bulunamadi.";
     }
 
   Satis *silinecekSatis = u_aramaSatisKodu[satisKodu];

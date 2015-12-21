@@ -42,6 +42,7 @@ void Yazilim::urunSilmeIslemi()
 
   try {
     this->vt->urunSil(urunKodu);
+    cout << "Basarili!" << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -49,22 +50,34 @@ void Yazilim::urunSilmeIslemi()
 
 void Yazilim::urunDuzenlemeIslemi()
 {
-  urunSilmeIslemi();
-  urunEklemeIslemi();
+  int urunKodu;
+  string urunAdi;
+  cout << "Urun Kodunu Giriniz : ";
+  cin >> urunKodu;
+  cout << "Yeni Urun Adini Giriniz : ";
+  cin >> urunAdi;
+  Urun *urun = vt->urunBul(urunKodu);
+  urun->setUrunAdi(urunAdi);
+  vt->urunGuncelle(urunKodu, urun);
+  cout << "Basarili!" << endl;
 }
 
 void Yazilim::urunListelemeIslemi()
 {
+  cout << "           Tum Urunler     " << endl;
+  cout << "==========="  << '\t' << "======================" << endl;
   UrunVektoru urunler =  vt->tumUrunler();
   for (unsigned int i = 0; i < urunler.size(); i++) {
-      cout << urunler[i]->getUrunAdi() << endl;
+      cout << urunler[i]->getUrunAdi() << '\t' << urunler[i]->getUrunKodu() << endl;
     }
+  cout << "======================================" << endl;
+  cout << "  Toplam Urun Sayisi : " << urunler.size() << endl;
 }
 
 void Yazilim::adaGoreUrunBulmaIslemi()
 {
   string urunAdi;
-  cout << "Urun Adini Giriniz : ";
+  cout << "Anahtar Metni Giriniz : ";
   cin.clear();
   cin.ignore(1, '\n');
   getline(cin, urunAdi);
@@ -140,7 +153,7 @@ void Yazilim::kategoriDuzenlemeIslemi()
   Kategori *kategori = vt->kategoriBul(kategoriKodu);
   kategori->setKategoriAdi(kategoriAdi);
   vt->kategoriGuncelle(kategoriKodu, kategori);
-  cout << "Basarili" << endl;
+  cout << "Basarili!" << endl;
 }
 
 void Yazilim::kategoriListelemeIslemi()
@@ -180,7 +193,7 @@ void Yazilim::kategoriUrunleriListelemeIslemi()
 void Yazilim::adaGoreKategoriBulmaIslemi()
 {
   string kategoriAdi;
-  cout << "Kategori Adini Giriniz : ";
+  cout << "Anahtar metni Giriniz : ";
   cin.clear();
   cin.ignore(1, '\n');
   getline(cin, kategoriAdi);
