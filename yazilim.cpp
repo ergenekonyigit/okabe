@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 #include "yazilim.h"
 #include "veri/veritabani.h"
@@ -64,14 +63,14 @@ void Yazilim::urunDuzenlemeIslemi()
 
 void Yazilim::urunListelemeIslemi()
 {
-  cout << "           Tum Urunler     " << endl;
-  cout << "==========="  << '\t' << "======================" << endl;
-  UrunVektoru urunler =  vt->tumUrunler();
+  cout << "Urun Adi" << '\t' << '\t' << "Urun Kodu"     << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  UrunVektoru urunler = vt->tumUrunler();
   for (unsigned int i = 0; i < urunler.size(); i++) {
-      cout << urunler[i]->getUrunAdi() << '\t' << urunler[i]->getUrunKodu() << endl;
+      cout << urunler[i]->getUrunAdi() << '\t' << '\t' << '\t' << urunler[i]->getUrunKodu() << endl;
     }
-  cout << "======================================" << endl;
-  cout << "  Toplam Urun Sayisi : " << urunler.size() << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Toplam Urun Sayisi : " << urunler.size() << endl;
 }
 
 void Yazilim::adaGoreUrunBulmaIslemi()
@@ -84,13 +83,13 @@ void Yazilim::adaGoreUrunBulmaIslemi()
 
   UrunVektoru sonuc = this->vt->adaGoreUrunAra(urunAdi);
 
-  cout << " Urun Kodu" << '\t' << "         Urun Adi      " << endl;
-  cout << "==========="  << '\t' << "======================" << endl;
+  cout << "Urun Kodu" << '\t' << '\t' << "Urun Adi"     << endl;
+  cout << "───────────────────────────────────────────" << endl;
   for (UrunGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
       Urun *urun_i = *i;
-      cout << urun_i->getUrunKodu() << '\t' << '\t' << urun_i->getUrunAdi() << endl;
+      cout << urun_i->getUrunKodu() << '\t' << '\t' << '\t' << urun_i->getUrunAdi() << endl;
     }
-  cout << "======================================" << endl;
+  cout << "───────────────────────────────────────────" << endl;
   cout << "Toplam Urun Sayisi : " << sonuc.size() << endl;
 }
 
@@ -103,10 +102,10 @@ void Yazilim::kodaGoreUrunBulmaIslemi()
   try {
     Urun* urun = this->vt->urunBul(urunKodu);
 
-    cout << " Urun Kodu" << '\t' << "         Urun Adi      " << endl;
-    cout << "==========="  << '\t' << "======================" << endl;
-    cout << urun->getUrunKodu() << '\t' << '\t' << urun->getUrunAdi() << endl;
-    cout << "======================================" << endl;
+    cout << "Urun Kodu" << '\t' << '\t' << "Urun Adi"     << endl;
+    cout << "───────────────────────────────────────────" << endl;
+    cout << urun->getUrunKodu() << '\t' << '\t' << '\t' << urun->getUrunAdi() << endl;
+    cout << "───────────────────────────────────────────" << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -158,14 +157,16 @@ void Yazilim::kategoriDuzenlemeIslemi()
 
 void Yazilim::kategoriListelemeIslemi()
 {
-  cout << "           Tum Kategoriler     " << endl;
-  cout << "==========="  << '\t' << "======================" << endl;
+  cout << "         Tum Kategorilerin Listesi         " << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Kategori Adi" << '\t' << '\t' << "Kategori Kodu"     << endl;
+  cout << "───────────────────────────────────────────" << endl;
   KategoriVektoru kategoriler =  vt->tumKategoriler();
   for (unsigned int i = 0; i < kategoriler.size(); i++) {
-      cout << kategoriler[i]->getKategoriAdi() << '\t' << '\t' << kategoriler[i]->getKategoriKodu() << endl;
+      cout << kategoriler[i]->getKategoriAdi() << '\t' << '\t' << '\t' << kategoriler[i]->getKategoriKodu() << endl;
     }
-  cout << "======================================" << endl;
-  cout << "  Toplam Kategori Sayisi : " << kategoriler.size() << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Toplam Kategori Sayisi : " << kategoriler.size() << endl;
 }
 
 void Yazilim::kategoriUrunleriListelemeIslemi()
@@ -173,20 +174,17 @@ void Yazilim::kategoriUrunleriListelemeIslemi()
   int kategoriKodu;
   cout << "Kategori kodu : ";
   cin >> kategoriKodu;
-  cout << "┌───────────────────────────────────────────┐" << endl;
-  cout << "│           Kategorideki Tum urunler        │" << endl;
-  cout << "├───────────────────────────────────────────┤" << endl;
-  cout << "   " << "Urun Adi   "
-       << "     Urun Kodu"
-       << endl;
-  cout << "  ────────────     ──────────────" << endl;
+
+  cout << "          Kategorideki Tum Urunler         " << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Urun Adi" << '\t' << '\t' << "Urun Kodu"     << endl;
+  cout << "───────────────────────────────────────────" << endl;
   UrunVektoru urunler =  vt->kategoriUrunleri(kategoriKodu);
   for (unsigned int i = 0; i < urunler.size(); i++) {
-      cout << setw(10) << urunler[i]->getUrunAdi() << setw(10)
-           << urunler[i]->getUrunKodu() << endl;
+      cout << urunler[i]->getUrunAdi() << '\t' << '\t' << '\t' << urunler[i]->getUrunKodu() << endl;
     }
-  cout << "└───────────────────────────────────────────┘" << endl;
-  cout << "  Toplam Urun Sayisi : " << urunler.size() << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Toplam Urun Sayisi : " << urunler.size() << endl;
 }
 
 void Yazilim::adaGoreKategoriBulmaIslemi()
@@ -203,13 +201,13 @@ void Yazilim::adaGoreKategoriBulmaIslemi()
       cout << "Kategori bulunamadi. Tam adi giriniz." << endl;
     }
   else {
-      cout << "Kategori Kodu" << '\t' << "      Kategori Adi    " << endl;
-      cout << "============="  << '\t' << "======================" << endl;
+      cout << "Kategori Kodu" << '\t' << '\t' << "Kategori Adi" << endl;
+      cout << "───────────────────────────────────────────" << endl;
       for (KategoriGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
           Kategori *kategori_i = *i;
           cout << kategori_i->getKategoriKodu() << '\t' << '\t' << kategori_i->getKategoriAdi() << endl;
         }
-      cout << "======================================" << endl;
+      cout << "───────────────────────────────────────────" << endl;
       cout << "Toplam Kategori Sayisi : " << sonuc.size() << endl;
     }
 }
@@ -223,10 +221,10 @@ void Yazilim::kodaGoreKategoriBulmaIslemi()
   try {
     Kategori* kategori = this->vt->kategoriBul(kategoriKodu);
 
-    cout << "Kategori Kodu" << '\t' << "      Kategori Adi    " << endl;
-    cout << "============="  << '\t' << "======================" << endl;
-    cout << kategori->getKategoriKodu() << '\t' << '\t' << kategori->getKategoriAdi() << endl;
-    cout << "======================================" << endl;
+    cout << "Kategori Kodu" << '\t' << '\t' << "Kategori Adi" << endl;
+    cout << "───────────────────────────────────────────" << endl;
+    cout << kategori->getKategoriKodu() << '\t' << '\t' << '\t' << kategori->getKategoriAdi() << endl;
+    cout << "───────────────────────────────────────────" << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -279,14 +277,9 @@ void Yazilim::alisDuzenlemeIslemi()
 
 void Yazilim::alisListelemeIslemi()
 {
-  cout << "              Tum Alislar               " << endl;
-  cout << "========================================" << endl;
-  cout << "Alis" <<
-          '\t' << "Urun" <<
-          '\t' << "Fiyat" <<
-          '\t' << "Adet" <<
-          '\t' << "Tarih" <<
-          endl;
+  cout << "                 Tum Alislar               " << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Alis" << '\t' << "Urun   " << '\t' << "Fiyat" << '\t' << "Adet" << '\t' << "Tarih" << endl;
   AlisVektoru alislar =  vt->tumAlislar();
   for (unsigned int i = 0; i < alislar.size(); i++) {
       cout << alislar[i]->getAlisKodu() <<
@@ -296,8 +289,8 @@ void Yazilim::alisListelemeIslemi()
               '\t' << alislar[i]->getAlisTarihi() <<
               endl;
     }
-  cout << "========================================" << endl;
-  cout << "  Toplam Alis Sayisi : " << alislar.size() << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Toplam Alis Sayisi : " << alislar.size() << endl;
 }
 
 void Yazilim::kodaGoreAlisBulmaIslemi()
@@ -309,10 +302,10 @@ void Yazilim::kodaGoreAlisBulmaIslemi()
   try {
     Alis* alis = this->vt->alisBul(alisKodu);
 
-    cout << " Alis Kodu" << '\t' << "         Urun Kodu     " << endl;
-    cout << "==========="  << '\t' << "======================" << endl;
-    cout << alis->getAlisKodu() << '\t' << '\t' << alis->getUrunKodu() << endl;
-    cout << "======================================" << endl;
+    cout << "Alis Kodu" << '\t' << '\t' << "Alis Adi"     << endl;
+    cout << "───────────────────────────────────────────" << endl;
+    cout << alis->getAlisKodu() << '\t' << '\t' << '\t' << alis->getUrunKodu() << endl;
+    cout << "───────────────────────────────────────────" << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
@@ -365,14 +358,9 @@ void Yazilim::satisDuzenlemeIslemi()
 
 void Yazilim::satisListelemeIslemi()
 {
-  cout << "              Tum Satislar               " << endl;
-  cout << "========================================" << endl;
-  cout << "Satis" <<
-          '\t' << "Urun" <<
-          '\t' << "Fiyat" <<
-          '\t' << "Adet" <<
-          '\t' << "Tarih" <<
-          endl;
+  cout << "                Tum Satislar               " << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Satis" << '\t' << "Urun   " << '\t' << "Fiyat" << '\t' << "Adet" << '\t' << "Tarih" << endl;
   SatisVektoru satislar = vt->tumSatislar();
   for (unsigned int i = 0; i < satislar.size(); i++) {
       cout << satislar[i]->getSatisKodu() <<
@@ -382,8 +370,8 @@ void Yazilim::satisListelemeIslemi()
               '\t' << satislar[i]->getSatisTarihi() <<
               endl;
     }
-  cout << "========================================" << endl;
-  cout << "  Toplam Satis Sayisi : " << satislar.size() << endl;
+  cout << "───────────────────────────────────────────" << endl;
+  cout << "Toplam Satis Sayisi : " << satislar.size() << endl;
 }
 
 void Yazilim::kodaGoreSatisBulmaIslemi()
@@ -395,13 +383,45 @@ void Yazilim::kodaGoreSatisBulmaIslemi()
   try {
     Satis* satis = this->vt->satisBul(satisKodu);
 
-    cout << "Satis Kodu" << '\t' << "         Urun Kodu     " << endl;
-    cout << "=========="  << '\t' << "======================" << endl;
+    cout << "Alis Kodu" << '\t' << '\t' << "Alis Adi"     << endl;
+    cout << "───────────────────────────────────────────" << endl;
     cout << satis->getSatisKodu() << '\t' << '\t' << satis->getUrunKodu() << endl;
-    cout << "======================================" << endl;
+    cout << "───────────────────────────────────────────" << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
   }
+}
+
+void Yazilim::gunlukKarHesabiIslemi()
+{
+  int tarih;
+  cout << "Kar Hesabi Yapilacak Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
+  cin >> tarih;
+  AlisVektoru alis = this->vt->tumAlislar();
+  SatisVektoru satis = this->vt->tumSatislar();
+  /*
+   *
+   */
+}
+
+void Yazilim::toplamAlisMiktariHesaplamaIslemi()
+{
+
+}
+
+void Yazilim::toplamAlisFiyatiHesaplamaIslemi()
+{
+
+}
+
+void Yazilim::kategoriToplamAlisHesaplamaIslemi()
+{
+
+}
+
+void Yazilim::kategoriToplamSatisHesaplamaIslemi()
+{
+
 }
 
 

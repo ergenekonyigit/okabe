@@ -37,6 +37,12 @@ public:
   void satisListelemeIslemi();
   void kodaGoreSatisBulmaIslemi();
 
+  void gunlukKarHesabiIslemi();
+  void toplamAlisMiktariHesaplamaIslemi();
+  void toplamAlisFiyatiHesaplamaIslemi();
+  void kategoriToplamAlisHesaplamaIslemi();
+  void kategoriToplamSatisHesaplamaIslemi();
+
 };
 
 #endif // YAZILIM_H
