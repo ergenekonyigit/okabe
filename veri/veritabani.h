@@ -6,10 +6,10 @@
 #include <map>
 #include <unordered_map>
 
-#include "veri/urun.h"
-#include "veri/kategori.h"
-#include "veri/alis.h"
-#include "veri/satis.h"
+#include "urun.h"
+#include "kategori.h"
+#include "alis.h"
+#include "satis.h"
 
 using namespace std;
 

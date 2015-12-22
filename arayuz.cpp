@@ -1,5 +1,5 @@
-#include "src/arayuz.h"
-#include "src/yazilim.h"
+#include "arayuz.h"
+#include "yazilim.h"
 
 #include <iostream>
 

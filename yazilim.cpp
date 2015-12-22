@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include "src/yazilim.h"
+#include "yazilim.h"
 #include "veri/veritabani.h"
-
 
 using namespace std;
 
