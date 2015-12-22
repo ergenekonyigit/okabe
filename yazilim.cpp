@@ -55,7 +55,9 @@ void Yazilim::urunDuzenlemeIslemi()
   cout << "Urun Kodunu Giriniz : ";
   cin >> urunKodu;
   cout << "Yeni Urun Adini Giriniz : ";
-  cin >> urunAdi;
+  cin.clear();
+  cin.ignore(1, '\n');
+  getline(cin, urunAdi);
   Urun *urun = vt->urunBul(urunKodu);
   urun->setUrunAdi(urunAdi);
   vt->urunGuncelle(urunKodu, urun);
@@ -149,7 +151,9 @@ void Yazilim::kategoriDuzenlemeIslemi()
   cout << "Kategori Kodunu Giriniz : ";
   cin >> kategoriKodu;
   cout << "Yeni Kategori Adini Giriniz : ";
-  cin >> kategoriAdi;
+  cin.clear();
+  cin.ignore(1, '\n');
+  getline(cin, kategoriAdi);
   Kategori *kategori = vt->kategoriBul(kategoriKodu);
   kategori->setKategoriAdi(kategoriAdi);
   vt->kategoriGuncelle(kategoriKodu, kategori);
