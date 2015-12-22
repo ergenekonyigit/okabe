@@ -49,6 +49,8 @@ public:
   float kategoriToplamSatisFiyatiHesaplama(int kategoriKod);
   float kategoriKarHesaplama(int kategoriKodu);
 
+  void testVeri();
+
 };
 
 #endif // YAZILIM_H

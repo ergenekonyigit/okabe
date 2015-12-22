@@ -10,6 +10,7 @@ using namespace std;
 Yazilim::Yazilim()
 {
   this->vt = new Veritabani;
+  testVeri();
 }
 
 void Yazilim::urunEklemeIslemi()
@@ -67,7 +68,7 @@ void Yazilim::urunListelemeIslemi()
   cout << "───────────────────────────────────────────" << endl;
   UrunVektoru urunler = vt->tumUrunler();
   for (unsigned int i = 0; i < urunler.size(); i++) {
-      cout << urunler[i]->getUrunAdi() << '\t' << '\t' << '\t' << urunler[i]->getUrunKodu() << endl;
+      cout << urunler[i]->getUrunAdi() << '\t' << '\t' << urunler[i]->getUrunKodu() << endl;
     }
   cout << "───────────────────────────────────────────" << endl;
   cout << "Toplam Urun Sayisi : " << urunler.size() << endl;
@@ -508,6 +509,65 @@ float Yazilim::kategoriToplamSatisFiyatiHesaplama(int kategoriKod)
 float Yazilim::kategoriKarHesaplama(int kategoriKodu)
 {
   return kategoriToplamSatisFiyatiHesaplama(kategoriKodu) - kategoriToplamAlisFiyatiHesaplama(kategoriKodu);
+}
+
+void Yazilim::testVeri()
+{
+    vt->kategoriEkle("Cep Telefonu");
+    vt->kategoriEkle("Bilgisayar");
+    vt->kategoriEkle("Tablet");
+    vt->kategoriEkle("Kulaklik");
+    vt->kategoriEkle("Aksesuar");
+
+    vt->urunEkle("iPhone 5S", 1);
+    vt->urunEkle("iPhone 6", 1);
+    vt->urunEkle("iPhone 6S", 1);
+    vt->urunEkle("Macbook Air", 2);
+    vt->urunEkle("Macbook Pro", 2);
+    vt->urunEkle("iPad Pro", 3);
+    vt->urunEkle("iPad Air 2", 3);
+    vt->urunEkle("iPad Mini 4", 3);
+    vt->urunEkle("Beats Solo2", 4);
+    vt->urunEkle("Beats Pro", 4);
+    vt->urunEkle("iPhone Case", 5);
+    vt->urunEkle("iPad Case", 5);
+    vt->urunEkle("HDMI Cable", 5);
+    vt->urunEkle("iPhone Dock", 5);
+
+    vt->alisEkle(1, "20151220", 1500, 800);
+    vt->alisEkle(2, "20151220", 2500, 500);
+    vt->alisEkle(3, "20151221", 3000, 250);
+    vt->alisEkle(4, "20151222", 3500, 150);
+    vt->alisEkle(5, "20151222", 5000, 50);
+    vt->alisEkle(6, "20151224", 3500, 450);
+    vt->alisEkle(7, "20151224", 1500, 850);
+    vt->alisEkle(8, "20151225", 1000, 1000);
+    vt->alisEkle(9, "20151226", 600, 600);
+    vt->alisEkle(10, "20151226", 900, 450);
+    vt->alisEkle(11, "20151228", 120, 3000);
+    vt->alisEkle(12, "20151228", 200, 1000);
+    vt->alisEkle(13, "20151228", 50, 500);
+    vt->alisEkle(14, "20151228", 100, 250);
+
+    vt->satisEkle(1, "20151220", 2300, 16);
+    vt->satisEkle(2, "20151220", 2700, 19);
+    vt->satisEkle(3, "20151221", 3100, 45);
+    vt->satisEkle(1, "20151221", 2300, 34);
+    vt->satisEkle(2, "20151221", 2700, 12);
+    vt->satisEkle(3, "20151222", 3100, 19);
+    vt->satisEkle(4, "20151222", 4000, 9);
+    vt->satisEkle(5, "20151222", 5300, 4);
+    vt->satisEkle(6, "20151224", 4000, 11);
+    vt->satisEkle(7, "20151224", 1800, 23);
+    vt->satisEkle(8, "20151225", 1300, 49);
+    vt->satisEkle(3, "20151226", 3100, 30);
+    vt->satisEkle(9, "20151227", 700, 2);
+    vt->satisEkle(10, "20151227", 1200, 1);
+    vt->satisEkle(11, "20151228", 150, 73);
+    vt->satisEkle(12, "20151228", 250, 40);
+    vt->satisEkle(2, "20151229", 2700, 14);
+    vt->satisEkle(6, "20151230", 4000, 7);
+    vt->satisEkle(3, "20151231", 3100, 10);
 }
 
 
