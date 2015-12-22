@@ -33,7 +33,7 @@ void Arayuz::anaMenuSecim()
 {
   int secim;
   do {
-      cout << "Seciminiz:";
+      cout << "Seciminiz : ";
       cin >> secim;
     } while (secim < 0 || secim > 8);
 
@@ -98,7 +98,7 @@ void Arayuz::urunMenuSecim()
 {
   int secim;
   do {
-      cout << "Seciminiz:";
+      cout << "Seciminiz : ";
       cin >> secim;
     } while (secim < 0 || secim > 6);
 
@@ -152,7 +152,7 @@ void Arayuz::kategoriMenuSecim()
 {
   int secim;
   do {
-      cout << "Seciminiz:";
+      cout << "Seciminiz : ";
       cin >> secim;
     } while (secim < 0 || secim > 7);
 
@@ -211,7 +211,7 @@ void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
 {
   int secim;
   do {
-      cout << "Seciminiz:";
+      cout << "Seciminiz : ";
       cin >> secim;
     } while (secim < 0 || secim > 5);
 
@@ -271,7 +271,7 @@ void Arayuz::alisMenuSecim()
 {
   int secim;
   do {
-      cout << "Seciminiz:";
+      cout << "Seciminiz : ";
       cin >> secim;
     } while (secim < 0 || secim > 5);
 
@@ -320,7 +320,7 @@ void Arayuz::satisMenuSecim()
 {
   int secim;
   do {
-      cout << "Seciminiz:";
+      cout << "Seciminiz : ";
       cin >> secim;
     } while (secim < 0 || secim > 5);
 
@@ -392,6 +392,9 @@ void Arayuz::hakkinda()
   cout << "│                                           │" << endl;
   cout << "│                                           │" << endl;
   cout << "│                Okabe Inc.                 │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│                                           │" << endl;
+  cout << "│  • Ana Menuye Donmek Icin 8'e basiniz •   │" << endl;
   cout << "│                                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
