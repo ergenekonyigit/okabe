@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "yazilim.h"
+#include "src/yazilim.h"
 #include "veri/veritabani.h"
 
 

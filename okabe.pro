@@ -3,14 +3,14 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp \
+SOURCES += src/main.cpp \
     veri/urun.cpp \
     veri/kategori.cpp \
     veri/alis.cpp \
     veri/satis.cpp \
     veri/veritabani.cpp \
-    yazilim.cpp \
-    arayuz.cpp
+    src/yazilim.cpp \
+    src/arayuz.cpp
 
 HEADERS += \
     veri/urun.h \
@@ -18,6 +18,6 @@ HEADERS += \
     veri/alis.h \
     veri/satis.h \
     veri/veritabani.h \
-    yazilim.h \
-    arayuz.h
+    src/yazilim.h \
+    src/arayuz.h
 

@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "arayuz.h"
-#include "yazilim.h"
+#include "src/arayuz.h"
+#include "src/yazilim.h"
 #include "veri/veritabani.h"
 
 using namespace std;

@@ -1,7 +1,7 @@
 #ifndef ARAYUZ_H
 #define ARAYUZ_H
 
-#include "yazilim.h"
+#include "src/yazilim.h"
 
 class Arayuz
 {
