@@ -572,8 +572,3 @@ void Yazilim::testVeri()
     vt->satisEkle(6, "20151230", 4000, 7);
     vt->satisEkle(3, "20151231", 3100, 10);
 }
-
-
-/* ==New Features==
- * haftalik-aylik alis ve satislarin listelenmesi
- */

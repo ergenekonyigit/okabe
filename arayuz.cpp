@@ -72,6 +72,8 @@ void Arayuz::anaMenuSecim()
       gunlukHesapCiktisi();
       break;
     default:
+      anaMenuListe();
+      anaMenuSecim();
       break;
     }
   anaMenuSecim();
