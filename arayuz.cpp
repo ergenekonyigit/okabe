@@ -63,7 +63,6 @@ void Arayuz::anaMenuSecim()
       break;
     case Hakkinda:
       hakkinda();
-      return;
       break;
     case Tazele:
       anaMenuListe();
