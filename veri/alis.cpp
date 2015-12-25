@@ -10,12 +10,12 @@ void Alis::setUrunKodu(int value)
   urunKodu = value;
 }
 
-string Alis::getAlisTarihi()
+int Alis::getAlisTarihi()
 {
   return alisTarihi;
 }
 
-void Alis::setAlisTarihi(string value)
+void Alis::setAlisTarihi(int value)
 {
   alisTarihi = value;
 }

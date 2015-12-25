@@ -91,13 +91,13 @@ public:
   void kategoriGuncelle(int kategoriKodu, Kategori *kategori);
 
   void alisEkle(Alis *alis);
-  void alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti);
+  void alisEkle(int urunKodu, int alisTarihi, float alisFiyati, int alisAdeti);
   void alisSil(int alisKodu);
   Alis *alisBul(int alisKodu);
   AlisVektoru tumAlislar();
 
   void satisEkle(Satis *satis);
-  void satisEkle(int urunKodu, string satisTarihi, float satisFiyati, int satisAdeti);
+  void satisEkle(int urunKodu, int satisTarihi, float satisFiyati, int satisAdeti);
   void satisSil(int satisKodu);
   Satis *satisBul(int satisKodu);
   SatisVektoru tumSatislar();

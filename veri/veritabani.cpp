@@ -197,7 +197,7 @@ void Veritabani::alisEkle(Alis *alis)
   u_vektorAlislar.push_back(alis);
 }
 
-void Veritabani::alisEkle(int urunKodu, string alisTarihi, float alisFiyati, int alisAdeti)
+void Veritabani::alisEkle(int urunKodu, int alisTarihi, float alisFiyati, int alisAdeti)
 {
   if (u_aramaUrunKodu.count(urunKodu) == 0) {
       throw "Urun bulunamadi, once urunu eklemelisiniz.";
@@ -253,7 +253,7 @@ void Veritabani::satisEkle(Satis *satis)
   u_vektorSatislar.push_back(satis);
 }
 
-void Veritabani::satisEkle(int urunKodu, string satisTarihi, float satisFiyati, int satisAdeti)
+void Veritabani::satisEkle(int urunKodu, int satisTarihi, float satisFiyati, int satisAdeti)
 {
   if (u_aramaUrunKodu.count(urunKodu) == 0) {
       throw "Urun bulunamadi, once urunu eklemelisiniz.";

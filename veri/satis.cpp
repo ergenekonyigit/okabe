@@ -10,12 +10,12 @@ void Satis::setUrunKodu(int value)
   urunKodu = value;
 }
 
-string Satis::getSatisTarihi()
+int Satis::getSatisTarihi()
 {
   return satisTarihi;
 }
 
-void Satis::setSatisTarihi(string value)
+void Satis::setSatisTarihi(int value)
 {
   satisTarihi = value;
 }

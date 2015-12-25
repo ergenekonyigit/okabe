@@ -22,7 +22,7 @@ void Arayuz::anaMenuListe()
   cout << "│  2  ▸  Kategoriler                        │" << endl;
   cout << "│  3  ▸  Alislar                            │" << endl;
   cout << "│  4  ▸  Satislar                           │" << endl;
-  cout << "│  5  ▸  Gunluk Kar Hesabi                  │" << endl;
+  cout << "│  5  ▸  Kar Hesabi                         │" << endl;
   cout << "│  6  ▸  Kullanim                           │" << endl;
   cout << "│  7  ▸  Hakkinda                           │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -66,8 +66,9 @@ void Arayuz::anaMenuSecim()
     case Hakkinda:
       hakkinda();
       break;
-    case GunlukKar:
-      gunlukHesapCiktisi();
+    case KarHesabi:
+      karHesapMenuListe();
+      karHesapMenuSecim();
       break;
     case Tazele:
       anaMenuListe();
@@ -197,7 +198,7 @@ void Arayuz::kategoriMenuSecim()
       cin >>kategoriKodu;
       kategoriDetayMenuSecim(kategoriKodu);
       break;
-    case kTazele:
+    case KategoriTazele:
       kategoriMenuListe();
       kategoriMenuSecim();
       break;
@@ -220,6 +221,7 @@ void Arayuz::kategoriDetayMenuListe()
   cout << "│  4  ▸  Kar                                │" << endl;
   cout << "│  5  ▸  Ust Menu                           │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  9  ▸  Ekrani Temizle                     │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -230,7 +232,7 @@ void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
   do {
       cout << "Seciminiz : ";
       cin >> secim;
-    } while (secim < 0 || secim > 5);
+    } while (secim < 0 || secim > 9);
 
   switch (secim) {
     case KategoriDetayAnaMenu:
@@ -262,6 +264,13 @@ void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
       break;
     case KategoriDetayKar:
       cout << yz->kategoriKarHesaplama(kategoriKodu) << endl;
+      break;
+    case KategoriDeteyTazele:
+      kategoriDetayMenuListe();
+      int kategoriKodu;
+      cout << "Kategori Kodu : ";
+      cin >>kategoriKodu;
+      kategoriDetayMenuSecim(kategoriKodu);
       break;
     default:
       cout << "Hatali Rakam Girdiniz." << endl;
@@ -315,7 +324,7 @@ void Arayuz::alisMenuSecim()
     case KodaGoreAlisBul:
       yz->kodaGoreAlisBulmaIslemi();
       break;
-    case aTazele:
+    case AlisTazele:
       alisMenuListe();
       alisMenuSecim();
       break;
@@ -371,7 +380,7 @@ void Arayuz::satisMenuSecim()
     case KodaGoreSatisBul:
       yz->kodaGoreSatisBulmaIslemi();
       break;
-    case sTazele:
+    case SatisTazele:
       satisMenuListe();
       satisMenuSecim();
       break;
@@ -380,6 +389,54 @@ void Arayuz::satisMenuSecim()
       break;
     }
   satisMenuSecim();
+}
+
+void Arayuz::karHesapMenuListe()
+{
+  system("clear");
+  cout << "┌───────────────────────────────────────────┐" << endl;
+  cout << "│        Ana Menu  ▸  Kar Hesabi            │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  1  ▸  Gunluk Kar Hesabi                  │" << endl;
+  cout << "│  2  ▸  Haftalik Kar Hesabi                │" << endl;
+  cout << "│  3  ▸  Aylik Kar Hesabi                   │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  9  ▸  Ekrani Temizle                     │" << endl;
+  cout << "│  0  ▸  Ana Menu                           │" << endl;
+  cout << "└───────────────────────────────────────────┘" << endl;
+}
+
+void Arayuz::karHesapMenuSecim()
+{
+  int secim;
+  do {
+      cout << "Seciminiz : ";
+      cin >> secim;
+    } while (secim < 0 || secim > 9);
+
+  switch (secim) {
+    case KarAnaMenu:
+      anaMenuListe();
+      anaMenuSecim();
+      break;
+    case GunlukKar:
+      gunlukHesapCiktisi();
+      break;
+    case HaftalikKar:
+      haftalikHesapCiktisi();
+      break;
+    case AylikKar:
+      aylikHesapCiktisi();
+      break;
+    case KarTazele:
+      satisMenuListe();
+      satisMenuSecim();
+      break;
+    default:
+      cout << "Hatali Rakam Girdiniz." << endl;
+      break;
+    }
+  karHesapMenuSecim();
 }
 
 void Arayuz::kullanim()
@@ -433,11 +490,25 @@ void Arayuz::hakkinda()
 
 void Arayuz::gunlukHesapCiktisi()
 {
-  string tarih;
+  int tarih;
   cout << "Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
   cin >> tarih;
   cout << "Gunluk kar : " << yz->gunlukKarHesabi(tarih) << endl;
 }
 
+void Arayuz::haftalikHesapCiktisi()
+{
+  int tarih;
+  cout << "Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
+  cin >> tarih;
+  cout << "Haftalik kar : " << yz->haftalikKarHesabi(tarih) << endl;
+}
 
+void Arayuz::aylikHesapCiktisi()
+{
+  int tarih;
+  cout << "Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
+  cin >> tarih;
+  cout << "Haftalik kar : " << yz->aylikKarHesabi(tarih) << endl;
+}
 

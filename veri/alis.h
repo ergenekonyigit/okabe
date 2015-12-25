@@ -9,7 +9,7 @@ class Alis
 {
 protected:
   int urunKodu;
-  string alisTarihi;
+  int alisTarihi;
   float alisFiyati;
   int alisAdeti;
   int alisKodu;
@@ -17,8 +17,8 @@ public:
   Alis();
   int getUrunKodu();
   void setUrunKodu(int value);
-  string getAlisTarihi();
-  void setAlisTarihi(string value);
+  int getAlisTarihi();
+  void setAlisTarihi(int value);
   float getAlisFiyati();
   void setAlisFiyati(float value);
   int getAlisAdeti();

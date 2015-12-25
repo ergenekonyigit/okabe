@@ -232,13 +232,10 @@ void Yazilim::kodaGoreKategoriBulmaIslemi()
 
 void Yazilim::alisEklemeIslemi()
 {
-  string alisTarihi;
   float alisFiyati;
-  int urunKodu, alisAdeti;
+  int urunKodu, alisAdeti, alisTarihi;
   cout << "Alis Tarihini Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin.clear();
-  cin.ignore(1, '\n');
-  getline(cin, alisTarihi);
+  cin >> alisTarihi;
   cout << "Urun Kodunu Giriniz : ";
   cin >> urunKodu;
   cout << "Alis Fiyatini Giriniz : ";
@@ -315,13 +312,10 @@ void Yazilim::kodaGoreAlisBulmaIslemi()
 
 void Yazilim::satisEklemeIslemi()
 {
-  string satisTarihi;
   float satisFiyati;
-  int urunKodu, satisAdeti;
+  int urunKodu, satisAdeti, satisTarihi;
   cout << "Satis Tarihini Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin.clear();
-  cin.ignore(1, '\n');
-  getline(cin, satisTarihi);
+  cin >> satisTarihi;
   cout << "Urun Kodunu Giriniz : ";
   cin >> urunKodu;
   cout << "Satis Fiyatini Giriniz : ";
@@ -396,9 +390,9 @@ void Yazilim::kodaGoreSatisBulmaIslemi()
   }
 }
 
-float Yazilim::gunlukKarHesabi(string tarih)
+float Yazilim::gunlukKarHesabi(int tarih)
 {
-  float alisToplami = 0, satisToplami = 0, kar = 0;
+  long double alisToplami = 0, satisToplami = 0, kar = 0;
   for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
       if (vt->tumAlislar()[i]->getAlisTarihi() == tarih) {
           alisToplami += vt->tumAlislar()[i]->getAlisFiyati() * vt->tumAlislar()[i]->getAlisAdeti();
@@ -407,6 +401,48 @@ float Yazilim::gunlukKarHesabi(string tarih)
   for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
       if (vt->tumSatislar()[i]->getSatisTarihi() == tarih) {
           satisToplami += vt->tumSatislar()[i]->getSatisFiyati() * vt->tumSatislar()[i]->getSatisAdeti();
+        }
+    }
+  kar = satisToplami - alisToplami;
+  return kar;
+}
+
+float Yazilim::haftalikKarHesabi(int tarih)
+{
+  long double alisToplami = 0, satisToplami = 0, kar = 0;
+  for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
+      for (int j = tarih; j > tarih-7; j--) {
+          if (vt->tumAlislar()[i]->getAlisTarihi() == tarih) {
+            alisToplami += vt->tumAlislar()[i]->getAlisFiyati() * vt->tumAlislar()[i]->getAlisAdeti();
+            }
+        }
+    }
+  for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
+      for (int j = tarih; j > tarih-7; j--) {
+          if (vt->tumSatislar()[i]->getSatisTarihi() == tarih) {
+            satisToplami += vt->tumSatislar()[i]->getSatisFiyati() * vt->tumSatislar()[i]->getSatisAdeti();
+            }
+        }
+    }
+  kar = satisToplami - alisToplami;
+  return kar;
+}
+
+float Yazilim::aylikKarHesabi(int tarih)
+{
+  long double alisToplami = 0, satisToplami = 0, kar = 0;
+  for (unsigned int i = 0; i < vt->tumAlislar().size(); i++) {
+      for (int j = tarih; j > tarih-30; j--) {
+          if (vt->tumAlislar()[i]->getAlisTarihi() == tarih) {
+            alisToplami += vt->tumAlislar()[i]->getAlisFiyati() * vt->tumAlislar()[i]->getAlisAdeti();
+            }
+        }
+    }
+  for (unsigned int i = 0; i < vt->tumSatislar().size(); i++) {
+      for (int j = tarih; j > tarih-30; j--) {
+          if (vt->tumSatislar()[i]->getSatisTarihi() == tarih) {
+            satisToplami += vt->tumSatislar()[i]->getSatisFiyati() * vt->tumSatislar()[i]->getSatisAdeti();
+            }
         }
     }
   kar = satisToplami - alisToplami;
@@ -537,38 +573,47 @@ void Yazilim::testVeri()
     vt->urunEkle("HDMI Cable", 5);
     vt->urunEkle("iPhone Dock", 5);
 
-    vt->alisEkle(1, "20151220", 1500, 80);
-    vt->alisEkle(2, "20151220", 2500, 50);
-    vt->alisEkle(3, "20151221", 3000, 120);
-    vt->alisEkle(4, "20151222", 3500, 15);
-    vt->alisEkle(5, "20151222", 5000, 50);
-    vt->alisEkle(6, "20151224", 3500, 45);
-    vt->alisEkle(7, "20151224", 1500, 85);
-    vt->alisEkle(8, "20151225", 1000, 100);
-    vt->alisEkle(9, "20151226", 600, 60);
-    vt->alisEkle(10, "20151226", 900, 10);
-    vt->alisEkle(11, "20151228", 120, 300);
-    vt->alisEkle(12, "20151228", 200, 100);
-    vt->alisEkle(13, "20151228", 50, 50);
-    vt->alisEkle(14, "20151228", 100, 25);
+    vt->alisEkle(1, 20151220, 100, 80);
+    vt->alisEkle(2, 20151220, 200, 80);
+    vt->alisEkle(3, 20151221, 250, 150);
+    vt->alisEkle(4, 20151222, 300, 50);
+    vt->alisEkle(5, 20151222, 450, 50);
+    vt->alisEkle(6, 20151224, 300, 45);
+    vt->alisEkle(7, 20151224, 100, 85);
+    vt->alisEkle(8, 20151225, 60, 100);
+    vt->alisEkle(9, 20151226, 30, 60);
+    vt->alisEkle(10, 20151226, 60, 10);
+    vt->alisEkle(11, 20151228, 10, 300);
+    vt->alisEkle(12, 20151228, 15, 100);
+    vt->alisEkle(13, 20151228, 3, 50);
+    vt->alisEkle(14, 20151228, 5, 25);
 
-    vt->satisEkle(1, "20151220", 2300, 16);
-    vt->satisEkle(2, "20151220", 2700, 19);
-    vt->satisEkle(3, "20151221", 3100, 45);
-    vt->satisEkle(1, "20151221", 2300, 34);
-    vt->satisEkle(2, "20151221", 2700, 12);
-    vt->satisEkle(3, "20151222", 3100, 19);
-    vt->satisEkle(4, "20151222", 4000, 9);
-    vt->satisEkle(5, "20151222", 5300, 4);
-    vt->satisEkle(6, "20151224", 4000, 11);
-    vt->satisEkle(7, "20151224", 1800, 23);
-    vt->satisEkle(8, "20151225", 1300, 49);
-    vt->satisEkle(3, "20151226", 3100, 30);
-    vt->satisEkle(9, "20151227", 700, 2);
-    vt->satisEkle(10, "20151227", 1200, 1);
-    vt->satisEkle(11, "20151228", 150, 73);
-    vt->satisEkle(12, "20151228", 250, 40);
-    vt->satisEkle(2, "20151229", 2700, 14);
-    vt->satisEkle(6, "20151230", 4000, 7);
-    vt->satisEkle(3, "20151231", 3100, 10);
+    vt->satisEkle(1, 20151220, 230, 16);
+    vt->satisEkle(2, 20151220, 270, 19);
+    vt->satisEkle(3, 20151221, 310, 45);
+    vt->satisEkle(1, 20151221, 230, 34);
+    vt->satisEkle(2, 20151221, 270, 12);
+    vt->satisEkle(3, 20151222, 310, 19);
+    vt->satisEkle(4, 20151222, 400, 13);
+    vt->satisEkle(5, 20151222, 530, 4);
+    vt->satisEkle(6, 20151224, 400, 11);
+    vt->satisEkle(7, 20151224, 180, 63);
+    vt->satisEkle(8, 20151225, 130, 49);
+    vt->satisEkle(3, 20151226, 310, 30);
+    vt->satisEkle(9, 20151227, 70, 2);
+    vt->satisEkle(10, 20151227, 120, 1);
+    vt->satisEkle(11, 20151228, 15, 73);
+    vt->satisEkle(12, 20151228, 25, 40);
+    vt->satisEkle(2, 20151229, 270, 14);
+    vt->satisEkle(6, 20151229, 400, 7);
+    vt->satisEkle(3, 20151229, 310, 10);
+    vt->satisEkle(8, 20151229, 130, 49);
+    vt->satisEkle(3, 20151230, 310, 30);
+    vt->satisEkle(9, 20151230, 70, 10);
+    vt->satisEkle(10, 20151230, 120, 5);
+    vt->satisEkle(11, 20151230, 15, 153);
+    vt->satisEkle(12, 20151231, 25, 50);
+    vt->satisEkle(2, 20151231, 270, 14);
+    vt->satisEkle(6, 20151231, 400, 21);
+    vt->satisEkle(3, 20151231, 310, 10);
 }

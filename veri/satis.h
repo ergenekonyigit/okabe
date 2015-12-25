@@ -9,7 +9,7 @@ class Satis
 {
 private:
   int urunKodu;
-  string satisTarihi;
+  int satisTarihi;
   float satisFiyati;
   int satisAdeti;
   int satisKodu;
@@ -17,8 +17,8 @@ public:
   Satis();
   int getUrunKodu();
   void setUrunKodu(int value);
-  string getSatisTarihi();
-  void setSatisTarihi(string value);
+  int getSatisTarihi();
+  void setSatisTarihi(int value);
   int getSatisAdeti();
   void setSatisAdeti(int value);
   float getSatisFiyati();

@@ -13,7 +13,7 @@ protected:
     Kategoriler,
     Alislar,
     Satislar,
-    GunlukKar,
+    KarHesabi,
     Kullanim,
     Hakkinda,
     Tazele = 9
@@ -27,7 +27,7 @@ protected:
     UrunleriListele,
     UrunSil,
     UrunDuzenle,
-    uTazele = 9
+    UrunTazele = 9
   };
 
   enum kategoriMenu {
@@ -39,7 +39,7 @@ protected:
     KategoriDetay,
     KategoriSil,
     KategoriDuzenle,
-    kTazele = 9
+    KategoriTazele = 9
   };
 
   enum kategoriDetayMenu {
@@ -49,7 +49,7 @@ protected:
     KategoriDetayToplamSatis,
     KategoriDetayKar,
     KategoriDetayKategoriler,
-    kdTazele = 9
+    KategoriDeteyTazele = 9
   };
 
   enum alisMenu {
@@ -59,7 +59,7 @@ protected:
     AlisSil,
     AlisDuzenle,
     KodaGoreAlisBul,
-    aTazele = 9
+    AlisTazele = 9
   };
 
   enum satisMenu {
@@ -69,7 +69,15 @@ protected:
     SatisSil,
     SatisDuzenle,
     KodaGoreSatisBul,
-    sTazele = 9
+    SatisTazele = 9
+  };
+
+  enum karMenu {
+    KarAnaMenu,
+    GunlukKar,
+    HaftalikKar,
+    AylikKar,
+    KarTazele = 9
   };
 
   void anaMenuListe();
@@ -90,9 +98,14 @@ protected:
   void satisMenuListe();
   void satisMenuSecim();
 
+  void karHesapMenuListe();
+  void karHesapMenuSecim();
+
   void kullanim();
   void hakkinda();
   void gunlukHesapCiktisi();
+  void haftalikHesapCiktisi();
+  void aylikHesapCiktisi();
 public:
   Arayuz();
 };

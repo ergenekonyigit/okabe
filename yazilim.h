@@ -37,7 +37,9 @@ public:
   void satisListelemeIslemi();
   void kodaGoreSatisBulmaIslemi();
 
-  float gunlukKarHesabi(string tarih);
+  float gunlukKarHesabi(int tarih);
+  float haftalikKarHesabi(int tarih);
+  float aylikKarHesabi(int tarih);
   float toplamAlisMiktariHesaplama();
   float toplamAlisFiyatiHesaplama();
   float toplamSatisMiktariHesaplama();
