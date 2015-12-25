@@ -25,6 +25,8 @@ void Arayuz::anaMenuListe()
   cout << "│  5  ▸  Gunluk Kar Hesabi                  │" << endl;
   cout << "│  6  ▸  Kullanim                           │" << endl;
   cout << "│  7  ▸  Hakkinda                           │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  9  ▸  Ekrani Temizle                     │" << endl;
   cout << "│  0  ▸  Cikis                              │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -35,7 +37,7 @@ void Arayuz::anaMenuSecim()
   do {
       cout << "Seciminiz : ";
       cin >> secim;
-    } while (secim < 0 || secim > 8);
+    } while (secim < 0 || secim > 9);
 
   switch (secim) {
     case Cikis:
@@ -64,16 +66,15 @@ void Arayuz::anaMenuSecim()
     case Hakkinda:
       hakkinda();
       break;
+    case GunlukKar:
+      gunlukHesapCiktisi();
+      break;
     case Tazele:
       anaMenuListe();
       anaMenuSecim();
       break;
-    case GunlukKar:
-      gunlukHesapCiktisi();
-      break;
     default:
-      anaMenuListe();
-      anaMenuSecim();
+      cout << "Hatali Rakam Girdiniz." << endl;
       break;
     }
   anaMenuSecim();
@@ -91,6 +92,8 @@ void Arayuz::urunMenuListe()
   cout << "│  4  ▸  Urunleri Listele                   │" << endl;
   cout << "│  5  ▸  Urun Sil                           │" << endl;
   cout << "│  6  ▸  Urun Duzenle                       │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  9  ▸  Ekrani Temizle                     │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -101,7 +104,7 @@ void Arayuz::urunMenuSecim()
   do {
       cout << "Seciminiz : ";
       cin >> secim;
-    } while (secim < 0 || secim > 6);
+    } while (secim < 0 || secim > 9);
 
   switch (secim) {
     case UrunAnaMenu:
@@ -126,7 +129,12 @@ void Arayuz::urunMenuSecim()
     case UrunDuzenle:
       yz->urunDuzenlemeIslemi();
       break;
+    case Tazele:
+      urunMenuListe();
+      urunMenuSecim();
+      break;
     default:
+      cout << "Hatali Rakam Girdiniz." << endl;
       break;
     }
   urunMenuSecim();
@@ -145,6 +153,8 @@ void Arayuz::kategoriMenuListe()
   cout << "│  5  ▸  Kategori Detay                     │" << endl;
   cout << "│  6  ▸  Kategori Sil                       │" << endl;
   cout << "│  7  ▸  Kategori Duzenle                   │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  9  ▸  Ekrani Temizle                     │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -155,7 +165,7 @@ void Arayuz::kategoriMenuSecim()
   do {
       cout << "Seciminiz : ";
       cin >> secim;
-    } while (secim < 0 || secim > 7);
+    } while (secim < 0 || secim > 9);
 
   switch (secim) {
     case KategoriAnaMenu:
@@ -187,7 +197,12 @@ void Arayuz::kategoriMenuSecim()
       cin >>kategoriKodu;
       kategoriDetayMenuSecim(kategoriKodu);
       break;
+    case kTazele:
+      kategoriMenuListe();
+      kategoriMenuSecim();
+      break;
     default:
+      cout << "Hatali Rakam Girdiniz." << endl;
       break;
     }
   kategoriMenuSecim();
@@ -204,6 +219,7 @@ void Arayuz::kategoriDetayMenuListe()
   cout << "│  3  ▸  Satislar                           │" << endl;
   cout << "│  4  ▸  Kar                                │" << endl;
   cout << "│  5  ▸  Ust Menu                           │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -248,6 +264,7 @@ void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
       cout << yz->kategoriKarHesaplama(kategoriKodu) << endl;
       break;
     default:
+      cout << "Hatali Rakam Girdiniz." << endl;
       break;
     }
   kategoriDetayMenuSecim(kategoriKodu);
@@ -264,6 +281,8 @@ void Arayuz::alisMenuListe()
   cout << "│  3  ▸  Alis sil                           │" << endl;
   cout << "│  4  ▸  Alis duzenle                       │" << endl;
   cout << "│  5  ▸  Alis bul (koda gore)               │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  9  ▸  Ekrani Temizle                     │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -274,7 +293,7 @@ void Arayuz::alisMenuSecim()
   do {
       cout << "Seciminiz : ";
       cin >> secim;
-    } while (secim < 0 || secim > 5);
+    } while (secim < 0 || secim > 9);
 
   switch (secim) {
     case AlisAnaMenu:
@@ -296,7 +315,12 @@ void Arayuz::alisMenuSecim()
     case KodaGoreAlisBul:
       yz->kodaGoreAlisBulmaIslemi();
       break;
+    case aTazele:
+      alisMenuListe();
+      alisMenuSecim();
+      break;
     default:
+      cout << "Hatali Rakam Girdiniz." << endl;
       break;
     }
   alisMenuSecim();
@@ -313,6 +337,8 @@ void Arayuz::satisMenuListe()
   cout << "│  3  ▸  Satis sil                          │" << endl;
   cout << "│  4  ▸  Satis duzenle                      │" << endl;
   cout << "│  5  ▸  Satis bul (koda göre)              │" << endl;
+  cout << "├───────────────────────────────────────────┤" << endl;
+  cout << "│  9  ▸  Ekrani Temizle                     │" << endl;
   cout << "│  0  ▸  Ana Menu                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -323,7 +349,7 @@ void Arayuz::satisMenuSecim()
   do {
       cout << "Seciminiz : ";
       cin >> secim;
-    } while (secim < 0 || secim > 5);
+    } while (secim < 0 || secim > 9);
 
   switch (secim) {
     case SatisAnaMenu:
@@ -345,7 +371,12 @@ void Arayuz::satisMenuSecim()
     case KodaGoreSatisBul:
       yz->kodaGoreSatisBulmaIslemi();
       break;
+    case sTazele:
+      satisMenuListe();
+      satisMenuSecim();
+      break;
     default:
+      cout << "Hatali Rakam Girdiniz." << endl;
       break;
     }
   satisMenuSecim();
@@ -374,7 +405,7 @@ void Arayuz::kullanim()
   cout << "│  Geribildirim : yigitergenekon@gmail.com  │" << endl;
   cout << "│                                           │" << endl;
   cout << "│                                           │" << endl;
-  cout << "│  • Ana Menuye Donmek Icin 8'e basiniz •   │" << endl;
+  cout << "│  • Ana Menuye Donmek Icin 9'a basiniz •   │" << endl;
   cout << "│                                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }
@@ -395,7 +426,7 @@ void Arayuz::hakkinda()
   cout << "│                Okabe Inc.                 │" << endl;
   cout << "│                                           │" << endl;
   cout << "│                                           │" << endl;
-  cout << "│  • Ana Menuye Donmek Icin 8'e basiniz •   │" << endl;
+  cout << "│  • Ana Menuye Donmek Icin 9'a basiniz •   │" << endl;
   cout << "│                                           │" << endl;
   cout << "└───────────────────────────────────────────┘" << endl;
 }

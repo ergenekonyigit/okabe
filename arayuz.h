@@ -16,7 +16,7 @@ protected:
     GunlukKar,
     Kullanim,
     Hakkinda,
-    Tazele
+    Tazele = 9
   };
 
   enum urunMenu {
@@ -26,7 +26,8 @@ protected:
     KodaGoreUrunAra,
     UrunleriListele,
     UrunSil,
-    UrunDuzenle
+    UrunDuzenle,
+    uTazele = 9
   };
 
   enum kategoriMenu {
@@ -37,7 +38,8 @@ protected:
     KategoriListele,
     KategoriDetay,
     KategoriSil,
-    KategoriDuzenle
+    KategoriDuzenle,
+    kTazele = 9
   };
 
   enum kategoriDetayMenu {
@@ -46,7 +48,8 @@ protected:
     KategoriDetayToplamAlis,
     KategoriDetayToplamSatis,
     KategoriDetayKar,
-    KategoriDetayKategoriler
+    KategoriDetayKategoriler,
+    kdTazele = 9
   };
 
   enum alisMenu {
@@ -55,7 +58,8 @@ protected:
     AlisListele,
     AlisSil,
     AlisDuzenle,
-    KodaGoreAlisBul
+    KodaGoreAlisBul,
+    aTazele = 9
   };
 
   enum satisMenu {
@@ -64,7 +68,8 @@ protected:
     SatisListele,
     SatisSil,
     SatisDuzenle,
-    KodaGoreSatisBul
+    KodaGoreSatisBul,
+    sTazele = 9
   };
 
   void anaMenuListe();

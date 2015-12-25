@@ -205,7 +205,7 @@ void Yazilim::adaGoreKategoriBulmaIslemi()
       cout << "───────────────────────────────────────────" << endl;
       for (KategoriGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
           Kategori *kategori_i = *i;
-          cout << kategori_i->getKategoriKodu() << '\t' << '\t' << kategori_i->getKategoriAdi() << endl;
+          cout << kategori_i->getKategoriKodu() << '\t' << '\t' << '\t' << kategori_i->getKategoriAdi() << endl;
         }
       cout << "───────────────────────────────────────────" << endl;
       cout << "Toplam Kategori Sayisi : " << sonuc.size() << endl;
@@ -537,20 +537,20 @@ void Yazilim::testVeri()
     vt->urunEkle("HDMI Cable", 5);
     vt->urunEkle("iPhone Dock", 5);
 
-    vt->alisEkle(1, "20151220", 1500, 800);
-    vt->alisEkle(2, "20151220", 2500, 500);
-    vt->alisEkle(3, "20151221", 3000, 250);
-    vt->alisEkle(4, "20151222", 3500, 150);
+    vt->alisEkle(1, "20151220", 1500, 80);
+    vt->alisEkle(2, "20151220", 2500, 50);
+    vt->alisEkle(3, "20151221", 3000, 120);
+    vt->alisEkle(4, "20151222", 3500, 15);
     vt->alisEkle(5, "20151222", 5000, 50);
-    vt->alisEkle(6, "20151224", 3500, 450);
-    vt->alisEkle(7, "20151224", 1500, 850);
-    vt->alisEkle(8, "20151225", 1000, 1000);
-    vt->alisEkle(9, "20151226", 600, 600);
-    vt->alisEkle(10, "20151226", 900, 450);
-    vt->alisEkle(11, "20151228", 120, 3000);
-    vt->alisEkle(12, "20151228", 200, 1000);
-    vt->alisEkle(13, "20151228", 50, 500);
-    vt->alisEkle(14, "20151228", 100, 250);
+    vt->alisEkle(6, "20151224", 3500, 45);
+    vt->alisEkle(7, "20151224", 1500, 85);
+    vt->alisEkle(8, "20151225", 1000, 100);
+    vt->alisEkle(9, "20151226", 600, 60);
+    vt->alisEkle(10, "20151226", 900, 10);
+    vt->alisEkle(11, "20151228", 120, 300);
+    vt->alisEkle(12, "20151228", 200, 100);
+    vt->alisEkle(13, "20151228", 50, 50);
+    vt->alisEkle(14, "20151228", 100, 25);
 
     vt->satisEkle(1, "20151220", 2300, 16);
     vt->satisEkle(2, "20151220", 2700, 19);
