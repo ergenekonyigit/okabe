@@ -90,7 +90,7 @@ void Yazilim::adaGoreUrunBulmaIslemi()
   cout << "───────────────────────────────────────────" << endl;
   for (UrunGezgini i = sonuc.begin(); i != sonuc.end(); i++) {
       Urun *urun_i = *i;
-      cout << urun_i->getUrunKodu() << '\t' << '\t' << '\t' << '\t' << urun_i->getUrunAdi() << endl;
+      cout << urun_i->getUrunKodu() << '\t' << '\t' << '\t' << urun_i->getUrunAdi() << endl;
     }
   cout << "───────────────────────────────────────────" << endl;
   cout << "Toplam Urun Sayisi : " << sonuc.size() << endl;
@@ -384,7 +384,7 @@ void Yazilim::kodaGoreSatisBulmaIslemi()
 
     cout << "Alis Kodu" << '\t' << '\t' << "Urun Kodu"     << endl;
     cout << "───────────────────────────────────────────" << endl;
-    cout << satis->getSatisKodu() << '\t' << '\t' << satis->getUrunKodu() << endl;
+    cout << satis->getSatisKodu() << '\t' << '\t' << '\t' << satis->getUrunKodu() << endl;
     cout << "───────────────────────────────────────────" << endl;
   } catch (char const* hata) {
     cout << "HATA OLUSTU : " << hata << endl;
