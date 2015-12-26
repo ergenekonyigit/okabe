@@ -26,8 +26,3 @@ int main()
 
   return 0;
 }
-
-/* –––New Features–––
- [ ] haftalik-aylik alis ve satislarin listelenmesi
- [ ]
- */
