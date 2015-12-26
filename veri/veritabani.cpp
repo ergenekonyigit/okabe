@@ -1,4 +1,5 @@
 #include "veritabani.h"
+#include "helper.h"
 
 #include <exception>
 
@@ -74,7 +75,7 @@ UrunVektoru Veritabani::adaGoreUrunAra(string urunAdi)
   for (adaGoreUrunGezgini i = u_aramaUrunAdi.begin();
        i != u_aramaUrunAdi.end();
        i++) {
-      if (i->second->getUrunAdi().find(urunAdi) != string::npos) {
+      if (kucukHarf(i->second->getUrunAdi()).find(kucukHarf(urunAdi)) != string::npos) {
           urunler.push_back(i->second);
         }
     }
@@ -171,7 +172,7 @@ KategoriVektoru Veritabani::adaGoreKategoriAra(string kategoriAdi)
   for (adaGoreKategoriGezgini i = u_aramaKategoriAdi.begin();
        i != u_aramaKategoriAdi.end();
        i++) {
-      if (i->second->getKategoriAdi().find(kategoriAdi) != string::npos) {
+      if (kucukHarf(i->second->getKategoriAdi()).find(kucukHarf(kategoriAdi)) != string::npos) {
           kategoriler.push_back(i->second);
         }
     }
