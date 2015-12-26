@@ -1,7 +1,7 @@
 Okabe
 ===================
 
-<img src="http://i65.tinypic.com/2330xv.jpg" width="200" align="middle">
+<img src="http://i65.tinypic.com/2330xv.jpg" width="150" align="middle">
 
 
 Yapılacaklar
@@ -12,8 +12,6 @@ Durum     											| İş
 :heavy_check_mark:    | Aramada büyük-küçük harf hassasiyeti.
 :heavy_check_mark:     | Sonsuz döngü çözülecek.
 :heavy_minus_sign: | İşlem iptal eklenecek.
-
-<img src="http://i65.tinypic.com/2330xv.jpg" width="200" align="middle">
 
 Katkıda Bulunanlar
 ------------------
