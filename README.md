@@ -6,7 +6,7 @@ Yapılacaklar
 -------------
 Durum     											| İş
 -------- 												| ---
-<i class="icon-refresh"></i> | Haftalık ve aylık hesap.
-<i class="icon-refresh"></i>    | Aramada büyük-küçük harf hassasiyeti.
-<i class="icon-refresh"></i>     | Sonsuz döngü çözülecek.
-<i class="icon-refresh"></i> | İşlem iptal eklenecek.
+:heavy_check_mark: | Haftalık ve aylık hesap.
+:heavy_check_mark:    | Aramada büyük-küçük harf hassasiyeti.
+:heavy_check_mark:     | Sonsuz döngü çözülecek.
+:heavy_minus_sign: | İşlem iptal eklenecek.
