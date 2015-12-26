@@ -3,6 +3,7 @@
 
 #include "yazilim.h"
 #include "veri/veritabani.h"
+#include "helper.h"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ void Yazilim::urunEklemeIslemi()
   cin.ignore(1, '\n');
   getline(cin, urunAdi);
   cout << "Kategori Kodunu Giriniz : ";
-  cin >> kategoriKodu;
+  sayisalGirdi(kategoriKodu);
 
   try {
     this->vt->urunEkle(urunAdi, kategoriKodu);
@@ -37,7 +38,7 @@ void Yazilim::urunSilmeIslemi()
 {
   int urunKodu;
   cout << "Urun Kodunu Giriniz : ";
-  cin >> urunKodu;
+  sayisalGirdi(urunKodu);
 
   try {
     this->vt->urunSil(urunKodu);
@@ -52,7 +53,7 @@ void Yazilim::urunDuzenlemeIslemi()
   int urunKodu;
   string urunAdi;
   cout << "Urun Kodunu Giriniz : ";
-  cin >> urunKodu;
+  sayisalGirdi(urunKodu);
   cout << "Yeni Urun Adini Giriniz : ";
   cin.clear();
   cin.ignore(1, '\n');
@@ -99,7 +100,7 @@ void Yazilim::kodaGoreUrunBulmaIslemi()
 {
   int urunKodu;
   cout << "Urun Kodunu Giriniz : ";
-  cin >> urunKodu;
+  sayisalGirdi(urunKodu);
 
   try {
     Urun* urun = this->vt->urunBul(urunKodu);
@@ -134,7 +135,7 @@ void Yazilim::kategoriSilmeIslemi()
 {
   int kategoriKodu;
   cout << "Kategori Kodunu Giriniz : ";
-  cin >> kategoriKodu;
+  sayisalGirdi(kategoriKodu);
 
   try {
     this->vt->kategoriSil(kategoriKodu);
@@ -148,7 +149,7 @@ void Yazilim::kategoriDuzenlemeIslemi()
   int kategoriKodu;
   string kategoriAdi;
   cout << "Kategori Kodunu Giriniz : ";
-  cin >> kategoriKodu;
+  sayisalGirdi(kategoriKodu);
   cout << "Yeni Kategori Adini Giriniz : ";
   cin.clear();
   cin.ignore(1, '\n');
@@ -216,7 +217,7 @@ void Yazilim::kodaGoreKategoriBulmaIslemi()
 {
   int kategoriKodu;
   cout << "Kategori Kodunu Giriniz : ";
-  cin >> kategoriKodu;
+  sayisalGirdi(kategoriKodu);
 
   try {
     Kategori* kategori = this->vt->kategoriBul(kategoriKodu);
@@ -235,13 +236,13 @@ void Yazilim::alisEklemeIslemi()
   float alisFiyati;
   int urunKodu, alisAdeti, alisTarihi;
   cout << "Alis Tarihini Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin >> alisTarihi;
+  sayisalGirdi(alisTarihi, "Ornegin, 5 Mart 2015 icin 20150305 seklinde yazmalisiniz.\nTarih:");
   cout << "Urun Kodunu Giriniz : ";
-  cin >> urunKodu;
+  sayisalGirdi(urunKodu);
   cout << "Alis Fiyatini Giriniz : ";
   cin >> alisFiyati;
   cout << "Alis Adetini Giriniz : ";
-  cin >> alisAdeti;
+  sayisalGirdi(alisAdeti);
 
   try {
     this->vt->alisEkle(urunKodu, alisTarihi, alisFiyati, alisAdeti);
@@ -256,7 +257,7 @@ void Yazilim::alisSilmeIslemi()
 {
   int alisKodu;
   cout << "Alis Kodunu Giriniz : ";
-  cin >> alisKodu;
+  sayisalGirdi(alisKodu);
 
   try {
     this->vt->alisSil(alisKodu);
@@ -296,7 +297,7 @@ void Yazilim::kodaGoreAlisBulmaIslemi()
 {
   int alisKodu;
   cout << "Alis Kodunu Giriniz : ";
-  cin >> alisKodu;
+  sayisalGirdi(alisKodu);
 
   try {
     Alis* alis = this->vt->alisBul(alisKodu);
@@ -315,13 +316,13 @@ void Yazilim::satisEklemeIslemi()
   float satisFiyati;
   int urunKodu, satisAdeti, satisTarihi;
   cout << "Satis Tarihini Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin >> satisTarihi;
+  sayisalGirdi(satisTarihi, "Ornegin, 5 Mart 2015 icin 20150305 seklinde yazmalisiniz.\nTarih:");
   cout << "Urun Kodunu Giriniz : ";
-  cin >> urunKodu;
+  sayisalGirdi(urunKodu);
   cout << "Satis Fiyatini Giriniz : ";
   cin >> satisFiyati;
   cout << "Satis Adetini Giriniz : ";
-  cin >> satisAdeti;
+  sayisalGirdi(satisAdeti);
 
   try {
     this->vt->satisEkle(urunKodu, satisTarihi, satisFiyati, satisAdeti);
@@ -336,7 +337,7 @@ void Yazilim::satisSilmeIslemi()
 {
   int satisKodu;
   cout << "Satis Kodunu Giriniz : ";
-  cin >> satisKodu;
+  sayisalGirdi(satisKodu);
 
   try {
     this->vt->satisSil(satisKodu);
@@ -376,7 +377,7 @@ void Yazilim::kodaGoreSatisBulmaIslemi()
 {
   int satisKodu;
   cout << "Satis Kodunu Giriniz : ";
-  cin >> satisKodu;
+  sayisalGirdi(satisKodu);
 
   try {
     Satis* satis = this->vt->satisBul(satisKodu);

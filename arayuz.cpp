@@ -1,5 +1,6 @@
 #include "arayuz.h"
 #include "yazilim.h"
+#include "helper.h"
 
 #include <iostream>
 
@@ -34,11 +35,8 @@ void Arayuz::anaMenuListe()
 void Arayuz::anaMenuSecim()
 {
   int secim;
-  do {
-      cout << "Seciminiz : ";
-      cin >> secim;
-    } while (secim < 0 || secim > 9);
-
+  cout << "Secim : ";
+  sayisalGirdi(secim, 0, 9);
   switch (secim) {
     case Cikis:
       cout << "Cikiliyor..." << endl;
@@ -102,11 +100,8 @@ void Arayuz::urunMenuListe()
 void Arayuz::urunMenuSecim()
 {
   int secim;
-  do {
-      cout << "Seciminiz : ";
-      cin >> secim;
-    } while (secim < 0 || secim > 9);
-
+  cout << "Secim : ";
+  sayisalGirdi(secim, 0, 9);
   switch (secim) {
     case UrunAnaMenu:
       anaMenuListe();
@@ -163,11 +158,8 @@ void Arayuz::kategoriMenuListe()
 void Arayuz::kategoriMenuSecim()
 {
   int secim;
-  do {
-      cout << "Seciminiz : ";
-      cin >> secim;
-    } while (secim < 0 || secim > 9);
-
+  cout << "Secim : ";
+  sayisalGirdi(secim, 0, 9);
   switch (secim) {
     case KategoriAnaMenu:
       anaMenuListe();
@@ -195,7 +187,7 @@ void Arayuz::kategoriMenuSecim()
       kategoriDetayMenuListe();
       int kategoriKodu;
       cout << "Kategori Kodu : ";
-      cin >>kategoriKodu;
+      sayisalGirdi(kategoriKodu);
       kategoriDetayMenuSecim(kategoriKodu);
       break;
     case KategoriTazele:
@@ -229,11 +221,8 @@ void Arayuz::kategoriDetayMenuListe()
 void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
 {
   int secim;
-  do {
-      cout << "Seciminiz : ";
-      cin >> secim;
-    } while (secim < 0 || secim > 9);
-
+  cout << "Secim : ";
+  sayisalGirdi(secim, 0, 9);
   switch (secim) {
     case KategoriDetayAnaMenu:
       anaMenuListe();
@@ -248,19 +237,19 @@ void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
       break;
     case KategoriDetayToplamAlis:
       cout << "Alis Miktari : "
-          << yz->kategoriToplamAlisMiktariHesaplama(kategoriKodu)
-          << endl
-          << "Alis Fiyati : "
-          << yz->kategoriToplamAlisFiyatiHesaplama(kategoriKodu)
-          << endl;
+           << yz->kategoriToplamAlisMiktariHesaplama(kategoriKodu)
+           << endl
+           << "Alis Fiyati : "
+           << yz->kategoriToplamAlisFiyatiHesaplama(kategoriKodu)
+           << endl;
       break;
     case KategoriDetayToplamSatis:
       cout << "Satis Miktari : "
-          << yz->kategoriToplamSatisMiktariHesaplama(kategoriKodu)
-          << endl
-          << "Satis Fiyati : "
-          << yz->kategoriToplamSatisFiyatiHesaplama(kategoriKodu)
-          << endl;
+           << yz->kategoriToplamSatisMiktariHesaplama(kategoriKodu)
+           << endl
+           << "Satis Fiyati : "
+           << yz->kategoriToplamSatisFiyatiHesaplama(kategoriKodu)
+           << endl;
       break;
     case KategoriDetayKar:
       cout << yz->kategoriKarHesaplama(kategoriKodu) << endl;
@@ -269,7 +258,7 @@ void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
       kategoriDetayMenuListe();
       int kategoriKodu;
       cout << "Kategori Kodu : ";
-      cin >>kategoriKodu;
+      sayisalGirdi(kategoriKodu);
       kategoriDetayMenuSecim(kategoriKodu);
       break;
     default:
@@ -299,11 +288,8 @@ void Arayuz::alisMenuListe()
 void Arayuz::alisMenuSecim()
 {
   int secim;
-  do {
-      cout << "Seciminiz : ";
-      cin >> secim;
-    } while (secim < 0 || secim > 9);
-
+  cout << "Secim : ";
+  sayisalGirdi(secim, 0, 9);
   switch (secim) {
     case AlisAnaMenu:
       anaMenuListe();
@@ -355,11 +341,8 @@ void Arayuz::satisMenuListe()
 void Arayuz::satisMenuSecim()
 {
   int secim;
-  do {
-      cout << "Seciminiz : ";
-      cin >> secim;
-    } while (secim < 0 || secim > 9);
-
+  cout << "Secim : ";
+  sayisalGirdi(secim, 0, 9);
   switch (secim) {
     case SatisAnaMenu:
       anaMenuListe();
@@ -409,11 +392,8 @@ void Arayuz::karHesapMenuListe()
 void Arayuz::karHesapMenuSecim()
 {
   int secim;
-  do {
-      cout << "Seciminiz : ";
-      cin >> secim;
-    } while (secim < 0 || secim > 9);
-
+  cout << "Secim : ";
+  sayisalGirdi(secim, 0, 9);
   switch (secim) {
     case KarAnaMenu:
       anaMenuListe();
@@ -492,7 +472,7 @@ void Arayuz::gunlukHesapCiktisi()
 {
   int tarih;
   cout << "Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin >> tarih;
+  sayisalGirdi(tarih, "Ornegin, 5 Mart 2015 icin 20150305 seklinde yazmalisiniz.\nTarih:");
   cout << "Gunluk kar : " << yz->gunlukKarHesabi(tarih) << endl;
 }
 
@@ -500,7 +480,7 @@ void Arayuz::haftalikHesapCiktisi()
 {
   int tarih;
   cout << "Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin >> tarih;
+  sayisalGirdi(tarih, "Ornegin, 5 Mart 2015 icin 20150305 seklinde yazmalisiniz.\nTarih:");
   cout << "Haftalik kar : " << yz->haftalikKarHesabi(tarih) << endl;
 }
 
@@ -508,7 +488,7 @@ void Arayuz::aylikHesapCiktisi()
 {
   int tarih;
   cout << "Tarihi Giriniz (YilAyGun Seklinde Yaziniz) : ";
-  cin >> tarih;
+  sayisalGirdi(tarih, "Ornegin, 5 Mart 2015 icin 20150305 seklinde yazmalisiniz.\nTarih:");
   cout << "Haftalik kar : " << yz->aylikKarHesabi(tarih) << endl;
 }
 

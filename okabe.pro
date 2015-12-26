@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     veri/satis.cpp \
     veri/veritabani.cpp \
     yazilim.cpp \
-    arayuz.cpp
+    arayuz.cpp \
+    helper.cpp
 
 HEADERS += \
     veri/urun.h \
@@ -19,5 +20,6 @@ HEADERS += \
     veri/satis.h \
     veri/veritabani.h \
     yazilim.h \
-    arayuz.h
+    arayuz.h \
+    helper.h
 
