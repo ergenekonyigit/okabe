@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cstdlib>
 
 using namespace std;
 
@@ -81,4 +82,13 @@ void sayisalGirdi(int &degisken, string hataMesaji) {
           cout << hataMesaji;
         }
     }
+}
+
+void ekraniTemizle()
+{
+#ifdef WINDOWS
+  std::system ( "CLS" );
+#else
+  std::system ( "clear" );
+#endif
 }

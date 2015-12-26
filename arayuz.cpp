@@ -15,7 +15,7 @@ Arayuz::Arayuz()
 
 void Arayuz::anaMenuListe()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Okabe Stok Kontrol Yazilimi        │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -81,7 +81,7 @@ void Arayuz::anaMenuSecim()
 
 void Arayuz::urunMenuListe()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Ana Menu  ▸  Urunler               │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -138,7 +138,7 @@ void Arayuz::urunMenuSecim()
 
 void Arayuz::kategoriMenuListe()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Ana Menu  ▸  Kategoriler           │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -203,7 +203,7 @@ void Arayuz::kategoriMenuSecim()
 
 void Arayuz::kategoriDetayMenuListe()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Kategoriler  ▸  KategoriDetay      │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -270,7 +270,7 @@ void Arayuz::kategoriDetayMenuSecim(int kategoriKodu)
 
 void Arayuz::alisMenuListe()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Ana Menu  ▸  Alislar               │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -323,7 +323,7 @@ void Arayuz::alisMenuSecim()
 
 void Arayuz::satisMenuListe()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Ana Menu  ▸  Satislar              │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -376,7 +376,7 @@ void Arayuz::satisMenuSecim()
 
 void Arayuz::karHesapMenuListe()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Ana Menu  ▸  Kar Hesabi            │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -421,7 +421,7 @@ void Arayuz::karHesapMenuSecim()
 
 void Arayuz::kullanim()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Okabe Stok Kontrol Yazilimi        │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
@@ -449,7 +449,7 @@ void Arayuz::kullanim()
 
 void Arayuz::hakkinda()
 {
-  system("clear");
+  ekraniTemizle();
   cout << "┌───────────────────────────────────────────┐" << endl;
   cout << "│        Okabe Stok Kontrol Yazilimi        │" << endl;
   cout << "├───────────────────────────────────────────┤" << endl;
